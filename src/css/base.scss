@@ -48,7 +48,16 @@ footer {
 }
 
 .dark-mode-on .next-destination {
-  background: $main-blue;
+  color: #000;
+  background: $dark-teal;
+
+  :hover {
+    background-color: $hover-teal;
+  }
+
+  h1 {
+    text-decoration: underline $main-red;
+  }
 }
 
 .hidden {
