@@ -1,7 +1,48 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-;
+@import 'buttons', 'media-queries', 'mixins', 'text', 'variables';
 
-body {
-  background: $primary-background;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Yusei+Magic&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 2px solid purple;
+}
+
+body>div {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  >img {
+    width:30%;
+    height:30%;
+  }
+}
+
+.total {
+  text-align: center;
+}
+
+article {
+  display: flex;
+  justify-content: center;
+}
+
+article>div{
+  padding: 3%;
+}
+
+.dark-mode-on {
+  background: #000;
+  color: #fff;
+}
+
+.hidden {
+  display: none!important;
 }

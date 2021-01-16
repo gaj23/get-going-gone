@@ -1,0 +1,31 @@
+.dark-light-mode {
+  width: 6vw;
+  float: right;
+  border: none;
+  border-radius: 100%;
+  background-color: transparent;
+  cursor: pointer;
+
+  >img {
+    background-color: #fff;
+    width: 100%;
+    padding: 5%;
+    border-radius: 100%;
+  }
+
+}
+
+.go-to {
+  width: 15vw;
+  margin: 4vw;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  >img {
+    width: 100%;
+    border-radius: 100%;
+    padding: 5%;
+    background-color: rgb(247, 218, 32);
+  }
+}
