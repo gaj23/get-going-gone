@@ -18,6 +18,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 5%;
 
   >img {
     width:30%;
@@ -27,11 +28,13 @@ header {
 
 .total {
   text-align: center;
+  flex-direction: column;
 }
 
 article {
   display: flex;
   justify-content: center;
+
 }
 
 article>div{

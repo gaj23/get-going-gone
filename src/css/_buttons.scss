@@ -1,4 +1,4 @@
-@import 'mixins';
+@import 'mixins', 'variables';
 
 .dark-light-mode {
   width: 6vw;
@@ -18,14 +18,12 @@
 .go-to {
   width: 15vw;
   margin: 4vw;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
+  @include base-button;
 
   >img {
     width: 100%;
     border-radius: 100%;
     padding: 5%;
-    background-color: rgb(247, 218, 32);
+    background-color: $main-red;
   }
 }
