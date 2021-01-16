@@ -1,10 +1,10 @@
+@import 'mixins';
+
 .dark-light-mode {
   width: 6vw;
   float: right;
-  border: none;
   border-radius: 100%;
-  background-color: transparent;
-  cursor: pointer;
+  @include base-button;
 
   >img {
     background-color: #fff;

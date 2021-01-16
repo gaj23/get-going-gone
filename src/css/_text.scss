@@ -1,12 +1,14 @@
+@import 'variables';
+
 h1 {
-  font-family: "Yusei Magic", sans-serif;
+  font-family: $main-font;
   font-size: 5rem;
   text-align: center;
   margin-left: 2rem;
 }
 
 h2 {
-  font-family: "Open Sans", sans-serif;
+  font-family: $text-font;
   font-size: 4rem;
 }
 
@@ -19,13 +21,13 @@ span {
 }
 
 article>div>h2{
-  font-family: "Yusei Magic", sans-serif;
+  font-family: $main-font;
   font-size: 5rem;
   text-align: right;
   margin-bottom: 5%
 }
 
 h3 {
-  font-family: "Open Sans", sans-serif;
+  font-family: $text-font;
   font-size: 3rem;
 }
