@@ -5,14 +5,16 @@ import './images/redBlueCompass.png';
 import './images/invertedCompass.png';
 import './images/arrow.png';
 
-const darkLightMode = document.querySelector('.dark-light-mode-js');
+const darkLightModeButton = document.querySelector('.dark-light-mode-js');
+const nextDestinationButton = document.querySelector('.next-destination-js')
 
-darkLightMode.addEventListener('click', toggleDarkMode);
+darkLightModeButton.addEventListener('click', toggleDarkMode);
 
 
 function toggleDarkMode() {
   document.querySelector('body').classList.toggle('dark-mode-on');
-  darkLightMode.classList.toggle('dark-mode-on');
+  darkLightModeButton.classList.toggle('dark-mode-on');
+  nextDestinationButton.classList.toggle('dark-mode-on');
   toggleLogoDarkMode();
 }
 
