@@ -31,11 +31,13 @@ header {
 }
 
 article {
-  @include base-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-article>div{
-  padding: 3%;
+.past-trips div {
+  margin-left: 11vw;
 }
 
 footer {
