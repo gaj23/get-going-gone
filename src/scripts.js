@@ -5,10 +5,24 @@ import './images/redBlueCompass.png';
 import './images/invertedCompass.png';
 import './images/arrow.png';
 
+import apiCalls from './apiCalls';
+import domUpdates from './domUpdates';
+
 const darkLightModeButton = document.querySelector('.dark-light-mode-js');
-const nextDestinationButton = document.querySelector('.next-destination-js')
+const nextDestinationButton = document.querySelector('.next-destination-js');
 
 darkLightModeButton.addEventListener('click', toggleDarkMode);
+
+let travelers = [];
+let trips = [];
+let destinations = [];
+
+window.onload = Promise.all([apiCalls.getTravelersData(), apiCalls.getTripsData(), apiCalls.getDestinationsData()])
+  .then(data => {
+    data[0].travelers.forEach(traveler => travelers.push(traveler))
+    data[1].trips.forEach(trip => trips.push(trip))
+    data[2].destinations.forEach(destination => destinations.push(destination))
+  })
 
 
 function toggleDarkMode() {
