@@ -1,0 +1,50 @@
+@import 'mixins', 'variables';
+
+.dark-light-mode {
+  width: 6vw;
+  float: right;
+  border-radius: 100%;
+  margin: 2%;
+  @include base-button;
+
+  >img {
+    background-color: #fff;
+    width: 100%;
+    padding: 5%;
+    border-radius: 100%;
+  }
+
+  :hover {
+    background-color: #EFEFEF;
+  }
+
+}
+
+.go-to {
+  width: 15vw;
+  margin: 4vw;
+  @include base-button;
+
+  >img {
+    width: 100%;
+    border-radius: 100%;
+    padding: 5%;
+    background-color: $main-red;
+  }
+
+  :hover{
+    background-color: $hover-red;
+  }
+}
+
+.next-destination {
+  width: 88%;
+  margin: 10%;
+  border: 5px solid $main-red;
+  border-radius: 3%;
+  cursor: pointer;
+
+  :hover{
+    background-color: $hover-red;
+  }
+}

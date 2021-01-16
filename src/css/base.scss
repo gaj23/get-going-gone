@@ -1,7 +1,67 @@
-/* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-;
+@import 'buttons', 'media-queries', 'mixins', 'text', 'variables', 'darkMode';
 
-body {
-  background: $primary-background;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Yusei+Magic&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  // border: 2px solid purple;
+}
+
+body>div {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  @include base-flex;
+  align-items: center;
+  margin-top: 5%;
+
+  >img {
+    width:30%;
+    height:30%;
+  }
+}
+
+.total {
+  text-align: center;
+  flex-direction: column;
+}
+
+article {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.past-trips div {
+  margin-left: 11vw;
+}
+
+footer {
+  @include base-flex;
+}
+
+.dark-mode-on {
+  background: #000;
+  color: #fff;
+}
+
+.dark-mode-on .next-destination {
+  color: #000;
+  background: $dark-teal;
+
+  :hover {
+    background-color: $hover-teal;
+  }
+
+  h1 {
+    text-decoration: underline $main-red;
+  }
+}
+
+.hidden {
+  display: none!important;
 }

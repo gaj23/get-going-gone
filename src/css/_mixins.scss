@@ -1,0 +1,10 @@
+@mixin base-button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+@mixin base-flex {
+  display: flex;
+  justify-content: center;
+}

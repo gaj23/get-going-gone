@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/scripts.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.bundle.js'
@@ -11,23 +11,20 @@ module.exports = {
   mode: 'development',
   // CSS and file (image) loaders
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-              {
-                loader: 'file-loader',
-                options: {
-                  name: '[name].[ext]',
-                  outputPath: 'images/',
-                  publicPath: 'images/'
-                }
-              }
-            ]
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'images/',
+            publicPath: 'images/'
+          }
+        }]
       }
     ],
   },
@@ -38,6 +35,6 @@ module.exports = {
     })
   ],
   devServer: {
-         contentBase: './dist'
+    contentBase: './dist'
   }
 };
