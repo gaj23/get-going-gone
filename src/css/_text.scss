@@ -31,3 +31,9 @@ h3 {
   font-family: $text-font;
   font-size: 3rem;
 }
+
+button>h1 {
+  margin: 0;
+  padding: 3%;
+  text-decoration: underline $main-blue;
+}

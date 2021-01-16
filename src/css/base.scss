@@ -6,7 +6,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border: 2px solid purple;
+  // border: 2px solid purple;
 }
 
 body>div {
@@ -15,8 +15,7 @@ body>div {
 }
 
 header {
-  display: flex;
-  justify-content: center;
+  @include base-flex;
   align-items: center;
   margin-top: 5%;
 
@@ -32,18 +31,24 @@ header {
 }
 
 article {
-  display: flex;
-  justify-content: center;
-
+  @include base-flex;
 }
 
 article>div{
   padding: 3%;
 }
 
+footer {
+  @include base-flex;
+}
+
 .dark-mode-on {
   background: #000;
   color: #fff;
+}
+
+.dark-mode-on .next-destination {
+  background: $main-blue;
 }
 
 .hidden {

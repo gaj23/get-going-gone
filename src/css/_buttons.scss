@@ -13,6 +13,10 @@
     border-radius: 100%;
   }
 
+  :hover {
+    background-color: #EFEFEF;
+  }
+
 }
 
 .go-to {
@@ -25,5 +29,21 @@
     border-radius: 100%;
     padding: 5%;
     background-color: $main-red;
+  }
+
+  :hover{
+    background-color: $hover-red;
+  }
+}
+
+.next-destination {
+  width: 88%;
+  margin: 10%;
+  border: 5px solid $main-red;
+  border-radius: 3%;
+  cursor: pointer;
+
+  :hover{
+    background-color: $hover-red;
   }
 }
