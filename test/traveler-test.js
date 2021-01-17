@@ -7,10 +7,11 @@ import tripsData from './test-data/trips'
 import destinationsData from './test-data/destinations'
 
 describe('Traveler', () => {
-  let traveler;
+  let traveler, traveler2;
 
   beforeEach(() => {
     traveler = new Traveler(travelersData[2]);
+    traveler2 = new Traveler(travelersData[9])
   });
 
   it('Should contain a traveler\'s information', () => {
@@ -21,12 +22,17 @@ describe('Traveler', () => {
 
 
   it('Should find all the traveler\'s trips', () => {
-    const myTrips = traveler.filterMyTrips(tripsData);
-    console.log(myTrips);
-    expect(traveler.filterMyTrips(tripsData).length).to.equal(4)
+    expect(traveler.filterMyTrips(tripsData).length).to.equal(4);
   });
 
-  it('Should calculate the total amount a traveler has spent for any year', () => {
-
+  it('Should calculate the total amount a traveler has spent with the travel agency', () => {
+    expect(traveler.findTotalExpense(tripsData, destinationsData)).to.equal(15526.5)
+    expect(traveler2.findTotalExpense(tripsData, destinationsData)).to.equal(58300);
   });
+
+  it('Should calculate the total amount a traveler has spent in a given year', () => {
+    expect(traveler.findTotalYearExpense(2020, tripsData, destinationsData)).to.equal(15526.5);
+    expect(traveler2.findTotalYearExpense(2019, tripsData, destinationsData)).to.equal(5819);
+    expect(traveler2.findTotalYearExpense(2021, tripsData, destinationsData)).to.equal(6094);
+  })
 })
