@@ -31,8 +31,7 @@ window.onload = Promise.all([apiCalls.getTravelersData(), apiCalls.getTripsData(
 console.log(travelers);
 
 function toggleDarkMode() {
-  document.querySelector('body').classList.toggle('dark-mode-on');
   darkLightModeButton.classList.toggle('dark-mode-on');
   nextDestinationButton.classList.toggle('dark-mode-on');
-  domUpdates.toggleLogoDarkMode();
+  domUpdates.toggleDarkModeUpdates();
 }

@@ -1,4 +1,9 @@
 const domUpdates = {
+  toggleDarkModeUpdates() {
+    document.querySelector('body').classList.toggle('dark-mode-on');
+    this.toggleLogoDarkMode();
+  },
+
   toggleLogoDarkMode() {
     const logo = document.querySelector('.logo-js')
     logo.classList.toggle('dark-mode-on');
