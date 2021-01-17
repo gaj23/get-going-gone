@@ -35,7 +35,22 @@ class Traveler {
     }, 0)
   }
   //tried pulling the if statement before, but leads to the problem of "trip" not being defined.
+  separateTrips(tripsData) {
+    return this.filterMyTrips(tripsData).reduce((acc, trip) => {
+      if (!acc.approved && !acc.pending) {
+        acc.approved = [];
+        acc.pending = [];
+      }
+      if (trip.status === 'approved') {
+        acc.approved.push(trip);
+      } else {
+        acc.pending.push(trip);
+      }
+      return acc;
+    }, {})
+  }
 }
+
 
 
 export default Traveler;

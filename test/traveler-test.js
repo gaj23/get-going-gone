@@ -7,11 +7,12 @@ import tripsData from './test-data/trips'
 import destinationsData from './test-data/destinations'
 
 describe('Traveler', () => {
-  let traveler, traveler2;
+  let traveler, traveler2, traveler3;
 
   beforeEach(() => {
     traveler = new Traveler(travelersData[2]);
-    traveler2 = new Traveler(travelersData[9])
+    traveler2 = new Traveler(travelersData[9]);
+    traveler3 = new Traveler(travelersData[0]);
   });
 
   it('Should contain a traveler\'s information', () => {
@@ -34,5 +35,11 @@ describe('Traveler', () => {
     expect(traveler.findTotalYearExpense(2020, tripsData, destinationsData)).to.equal(15526.5);
     expect(traveler2.findTotalYearExpense(2019, tripsData, destinationsData)).to.equal(5819);
     expect(traveler2.findTotalYearExpense(2021, tripsData, destinationsData)).to.equal(6094);
+  })
+
+  it('Should separate pending and approved trips', () => {
+    expect(traveler.separateTrips(tripsData).approved.length).to.equal(4);
+    expect(traveler.separateTrips(tripsData).pending.length).to.equal(0);
+    expect(traveler3.separateTrips(tripsData).pending.length).to.equal(1);
   })
 })
