@@ -5,6 +5,10 @@ import './images/redBlueCompass.png';
 import './images/invertedCompass.png';
 import './images/arrow.png';
 
+
+import Traveler from './Traveler';
+import Trip from './Trip';
+import Destination from '.Destination';
 import apiCalls from './apiCalls';
 import domUpdates from './domUpdates';
 
