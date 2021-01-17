@@ -17,6 +17,7 @@ const nextDestinationButton = document.querySelector('.next-destination-js');
 
 darkLightModeButton.addEventListener('click', toggleDarkMode);
 
+let traveler;
 let travelers = [];
 let trips = [];
 let destinations = [];
@@ -26,9 +27,18 @@ window.onload = Promise.all([apiCalls.getTravelersData(), apiCalls.getTripsData(
     data[0].travelers.forEach(traveler => travelers.push(traveler))
     data[1].trips.forEach(trip => trips.push(trip))
     data[2].destinations.forEach(destination => destinations.push(destination))
+    instantiation();
   })
 
-console.log(travelers);
+// console.log(travelers);
+
+function instantiation() {
+  traveler = new Traveler(travelers[7]);
+  domUpdates.greetTraveler(traveler);
+  domUpdates.updateTravelerStats(traveler, trips, destinations);
+}
+
+// console.log(traveler.name);
 
 function toggleDarkMode() {
   darkLightModeButton.classList.toggle('dark-mode-on');

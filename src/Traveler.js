@@ -1,7 +1,6 @@
 import {
   DateTime
-}
-from 'luxon';
+} from 'luxon';
 
 class Traveler {
   constructor(traveler) {
