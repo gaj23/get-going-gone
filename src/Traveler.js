@@ -34,6 +34,7 @@ class Traveler {
       return acc;
     }, 0)
   }
+  //tried pulling the if statement before, but leads to the problem of "trip" not being defined.
 }
 
 
