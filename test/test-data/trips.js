@@ -1,4 +1,4 @@
-const trips = [{
+const tripsData = [{
   "id": 1,
   "userID": 44,
   "destinationID": 49,
@@ -1800,4 +1800,4 @@ const trips = [{
   "suggestedActivities": []
 }]
 
-export default trips;
+export default tripsData;

@@ -1,4 +1,4 @@
-const destinations = [{
+const destinationsData = [{
   "id": 1,
   "destination": "Lima, Peru",
   "estimatedLodgingCostPerDay": 70,
@@ -56,4 +56,4 @@ const destinations = [{
   "alt": "city with people walking in crosswalk and brightly lit shops at night"
 }];
 
-export default destinations;
+export default destinationsData;
