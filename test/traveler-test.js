@@ -38,8 +38,71 @@ describe('Traveler', () => {
   })
 
   it('Should separate pending and approved trips', () => {
-    expect(traveler.separateTrips(tripsData).approved.length).to.equal(4);
-    expect(traveler.separateTrips(tripsData).pending.length).to.equal(0);
-    expect(traveler3.separateTrips(tripsData).pending.length).to.equal(1);
+    expect(traveler.separateApprovedTrips(tripsData).approved.length).to.equal(4);
+    expect(traveler.separateApprovedTrips(tripsData).pending.length).to.equal(0);
+    expect(traveler3.separateApprovedTrips(tripsData).pending.length).to.equal(1);
+  })
+
+  it('Should separate trips into past, current, and future', () => {
+    const globeTrotterData = [{
+      "id": 48,
+      "userID": 50,
+      "destinationID": 14,
+      "travelers": 6,
+      "date": "2021/02/10",
+      "duration": 8,
+      "status": "approved",
+      "suggestedActivities": []
+    }, {
+      "id": 49,
+      "userID": 50,
+      "destinationID": 35,
+      "travelers": 1,
+      "date": "2020/05/14",
+      "duration": 16,
+      "status": "approved",
+      "suggestedActivities": []
+    }, {
+      "id": 50,
+      "userID": 50,
+      "destinationID": 16,
+      "travelers": 5,
+      "date": "2020/07/02",
+      "duration": 17,
+      "status": "approved",
+      "suggestedActivities": []
+    }, {
+      "id": 51,
+      "userID": 50,
+      "destinationID": 27,
+      "travelers": 2,
+      "date": "2021/01/16",
+      "duration": 15,
+      "status": "approved",
+      "suggestedActivities": []
+    }];
+    const globeTrotter = new Traveler(travelersData[15]);
+    expect(globeTrotter.separateTripTimings(globeTrotterData).past.length).to.equal(2);
+    expect(globeTrotter.separateTripTimings(globeTrotterData).future).to.deep.equal([{
+      id: 48,
+      userID: 50,
+      destinationID: 14,
+      travelers: 6,
+      date: '2021/02/10',
+      duration: 8,
+      status: 'approved',
+      suggestedActivities: []
+    }]);
+    expect(globeTrotter.separateTripTimings(globeTrotterData).present).to.deep.equal([{
+      id: 51,
+      userID: 50,
+      destinationID: 27,
+      travelers: 2,
+      date: '2021/01/16',
+      duration: 15,
+      status: 'approved',
+      suggestedActivities: []
+    }]);
+
   })
 })
