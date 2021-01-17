@@ -15,15 +15,7 @@ class Traveler {
   }
 
   findTotalExpense(tripsData, destinationsData) {
-    return this.filterMyTrips(tripsData).reduce((acc, trip) => {
-      destinationsData.find(destination => {
-        if (trip.destinationID === destination.id) {
-          const subtotal = ((trip.travelers * destination.estimatedFlightCostPerPerson) + (trip.duration * destination.estimatedLodgingCostPerDay));
-          acc += (subtotal * .1) + subtotal;
-        }
-      })
-      return acc;
-    }, 0)
+    return this.findExpenses(tripsData, destinationsData);
   }
 
   findTotalYearExpense(year, tripsData, destinationsData) {
@@ -39,7 +31,19 @@ class Traveler {
       return acc;
     }, 0)
   }
-  //tried pulling the if statement before, but leads to the problem of "trip" not being defined.
+
+  //Would like to refactor findTotalYearExpense to encorpreate findExpenses (and cut down redundancy), but problem of 'trip' needed to be defined.
+  findExpenses(tripsData, destinationsData) {
+    return this.filterMyTrips(tripsData).reduce((acc, trip) => {
+      destinationsData.find(destination => {
+        if (trip.destinationID === destination.id) {
+          const subtotal = ((trip.travelers * destination.estimatedFlightCostPerPerson) + (trip.duration * destination.estimatedLodgingCostPerDay));
+          acc += (subtotal * .1) + subtotal;
+        }
+      })
+      return acc;
+    }, 0)
+  }
   separateApprovedTrips(tripsData) {
     return this.filterMyTrips(tripsData).reduce((acc, trip) => {
       if (!acc.approved && !acc.pending) {
@@ -57,7 +61,7 @@ class Traveler {
   }
 
   separateTripTimings(tripsData) {
-    const separateTrips = this.filterMyTrips(tripsData).reduce((acc, trip) => {
+    return this.filterMyTrips(tripsData).reduce((acc, trip) => {
       const currentDate = DateTime.local();
       const splitDate = trip.date.split('/');
       const parsedDate = splitDate.map(num => parseInt(num));
@@ -65,7 +69,7 @@ class Traveler {
       const endDate = startDate.plus({
         days: trip.duration
       })
-      //refactor above into another function possible?
+      //refactor above into another function if possible;
       if (!acc.past && !acc.future && !acc.present) {
         acc.past = [];
         acc.future = [];
@@ -80,7 +84,6 @@ class Traveler {
       }
       return acc;
     }, {})
-    return separateTrips;
   }
 }
 
