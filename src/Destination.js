@@ -1,7 +1,7 @@
 class Destination {
   constructor(destinationObj) {
     this.id = destinationObj.id;
-    this.name = destinationObj.destination;
+    this.destination = destinationObj.destination;
     this.estimatedLodgingCostPerDay = destinationObj.estimatedLodgingCostPerDay;
     this.estimatedFlightCostPerPerson = destinationObj.estimatedFlightCostPerPerson;
     this.image = destinationObj.image;

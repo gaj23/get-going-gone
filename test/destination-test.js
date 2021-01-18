@@ -16,7 +16,7 @@ describe('Destination', () => {
   })
 
   it('Should contain information a traveler would want to know about a destination', () => {
-    expect(destination.name).to.equal('Cartagena, Colombia');
+    expect(destination.destination).to.equal('Cartagena, Colombia');
     expect(destination.estimatedLodgingCostPerDay).to.equal(65);
     expect(destination.estimatedFlightCostPerPerson).to.equal(350);
     expect(destination.image).to.equal('https://images.unsplash.com/photo-1558029697-a7ed1a4b94c0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80');
