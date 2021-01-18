@@ -22,10 +22,6 @@ const domUpdates = {
     document.querySelector('.total-places-js').innerText = traveler.filterMyTrips(tripsData).length;
     document.querySelector('.total-price-js').innerText = Math.round(traveler.findTotalExpense(tripsData, destinationsData));
   }
-  //innerHTML?
-  //innerText?
-  //insertAdjacentHTML?
-  //put it here instead.
 }
 
 export default domUpdates;
