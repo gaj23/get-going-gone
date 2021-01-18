@@ -12,18 +12,18 @@ import Traveler from './Traveler';
 import apiCalls from './apiCalls';
 import domUpdates from './domUpdates';
 
+// ** Button Query Selectors **
 const darkLightModeButton = document.querySelector('.dark-light-mode-js');
 const currentTripsButton = document.querySelector('.go-to-current-js');
 const plannedTripsButton = document.querySelector('.go-to-planned-js');
 const pastTripsButton = document.querySelector('.go-to-past-js')
+const homeButton = document.querySelector('.go-home-js')
 const nextDestinationButton = document.querySelector('.next-destination-js');
 
-darkLightModeButton.addEventListener('click', toggleDarkMode);
-currentTripsButton.addEventListener('click', displayCurrentTrips);
-plannedTripsButton.addEventListener('click', displayPlannedTrips);
-pastTripsButton.addEventListener('click', displayPastTrips);
-nextDestinationButton.addEventListener('click', displayBooking);
+// ** Display Query Selectors **
 
+
+darkLightModeButton.addEventListener('click', toggleDarkMode);
 
 let traveler;
 let travelers = [];
@@ -42,22 +42,6 @@ function instantiation() {
   traveler = new Traveler(travelers[7]);
   domUpdates.greetTraveler(traveler);
   domUpdates.updateTravelerStats(traveler, trips, destinations);
-}
-
-function displayCurrentTrips() {
-
-}
-
-function displayPlannedTrips() {
-
-}
-
-function displayPastTrips() {
-
-}
-
-function displayBooking() {
-
 }
 
 function toggleDarkMode() {
