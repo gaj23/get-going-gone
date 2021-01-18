@@ -18,13 +18,14 @@ const homeButton = document.querySelector('.go-home-js');
 const currentTripsButton = document.querySelector('.go-to-current-js');
 const plannedTripsButton = document.querySelector('.go-to-planned-js');
 const pastTripsButton = document.querySelector('.go-to-past-js')
-const nextDestinationButton = document.querySelector('.make-booking-js');
+const makeBookingButton = document.querySelector('.make-booking-js');
 
 // ** Display Query Selectors **
 const homeDisplay = document.querySelector('.dashboard-js');
 const currentDisplay = document.querySelector('.detailed-current-trips-js');
 const plannedDisplay = document.querySelector('.detailed-planned-trips-js');
 const pastDisplay = document.querySelector('.detailed-past-trips-js');
+const bookingDisplay = document.querySelector('.booking-js');
 
 // ** Event Listeners **
 darkLightModeButton.addEventListener('click', toggleDarkMode);
@@ -32,6 +33,7 @@ homeButton.addEventListener('click', showHome);
 currentTripsButton.addEventListener('click', showCurrentDetails);
 plannedTripsButton.addEventListener('click', showPlannedDetails);
 pastTripsButton.addEventListener('click', showPastDetails);
+makeBookingButton.addEventListener('click', showBookingDetails);
 
 let traveler;
 let travelers = [];
@@ -54,7 +56,8 @@ function getData() {
 
 function showHome() {
   domUpdates.manageClassList('remove', 'hidden', homeDisplay);
-  const detailedDisplays = [currentDisplay, plannedDisplay, pastDisplay];
+  domUpdates.manageClassList('remove', 'hidden', makeBookingButton);
+  const detailedDisplays = [currentDisplay, plannedDisplay, pastDisplay, bookingDisplay];
   detailedDisplays.forEach(display => {
     if (!display.classList.contains('hidden')) {
       domUpdates.manageClassList('add', 'hidden', display);
@@ -76,6 +79,13 @@ function showPastDetails() {
   domUpdates.manageClassList('add', 'hidden', homeDisplay);
   domUpdates.manageClassList('remove', 'hidden', pastDisplay);
 }
+
+function showBookingDetails() {
+  domUpdates.manageClassList('add', 'hidden', homeDisplay);
+  domUpdates.manageClassList('add', 'hidden', makeBookingButton);
+  domUpdates.manageClassList('remove', 'hidden', bookingDisplay);
+}
+
 
 function toggleDarkMode() {
   darkLightModeButton.classList.toggle('dark-mode-on');
