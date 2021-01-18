@@ -35,10 +35,11 @@ plannedTripsButton.addEventListener('click', showPlannedDetails);
 pastTripsButton.addEventListener('click', showPastDetails);
 makeBookingButton.addEventListener('click', showBookingDetails);
 
-let traveler;
-let travelers = [];
-let trips = [];
-let destinations = [];
+
+window.traveler;
+window.travelers = [];
+window.trips = [];
+window.destinations = [];
 
 window.onload = Promise.all([apiCalls.getTravelersData(), apiCalls.getTripsData(), apiCalls.getDestinationsData()])
   .then(data => {
@@ -49,9 +50,9 @@ window.onload = Promise.all([apiCalls.getTravelersData(), apiCalls.getTripsData(
   })
 
 function getData() {
-  traveler = new Traveler(travelers[7]);
-  domUpdates.greetTraveler(traveler);
-  domUpdates.updateTravelerStats(traveler, trips, destinations);
+  window.traveler = new Traveler(travelers[7]);
+  domUpdates.greetTraveler(window.traveler);
+  domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations);
 }
 
 function showHome() {
@@ -61,7 +62,7 @@ function showHome() {
   detailedDisplays.forEach(display => {
     if (!display.classList.contains('hidden')) {
       domUpdates.manageClassList('add', 'hidden', display);
-    };
+    }
   })
 }
 
@@ -78,6 +79,7 @@ function showPlannedDetails() {
 function showPastDetails() {
   domUpdates.manageClassList('add', 'hidden', homeDisplay);
   domUpdates.manageClassList('remove', 'hidden', pastDisplay);
+  domUpdates.populateDetails('past', window.traveler, window.trips, window.destinations);
 }
 
 function showBookingDetails() {
