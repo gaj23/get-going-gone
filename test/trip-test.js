@@ -3,6 +3,7 @@ const expect = chai.expect;
 
 import Trip from '../src/Trip'
 import tripsData from './test-data/trips'
+import destinationsData from './test-data/destinations'
 
 describe.only('Trip', () => {
   let trip, trip2;
@@ -23,7 +24,8 @@ describe.only('Trip', () => {
     expect(trip.suggestedActivities).to.be.an('array');
   })
 
-  it('Should calcuate the estimate of a trip\'s price', () => {
-    expect(trip.estimateCost(destinationsData)).to.equal()
+  it('Should calcuate the estimate of a trip\'s price and store it', () => {
+    trip2.estimateCost(destinationsData);
+    expect(trip2.costEstimate).to.equal(4565);
   })
 })
