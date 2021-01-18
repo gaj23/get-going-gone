@@ -54,29 +54,32 @@
 
   <!-- current trips detailed view -->
   <section class="detailed-current-trips-js hidden">
-    <article>
-      <div>
-        <h2>get</h2>
-        <h3>current trips</h3>
-      </div>
+    <article class="detailed-view">
+      <h2>get</h2>
+      <h3>current trips</h3>
+      <article class="current-trips-js hidden">
+        <!-- innerHTML response here of current trip -->
+      </article>
     </article>
   </section>
   <!-- planned trips detailed view -->
   <section class="detailed-planned-trips-js hidden">
-    <article>
-      <div>
-        <h2>going</h2>
-        <h3>planned trips</h3>
-      </div>
+    <article class="detailed-view">
+      <h2>going</h2>
+      <h3>planned trips</h3>
+      <article class="planned-trips-js">
+        <!-- innerHTML response here -->
+      </article>
     </article>
   </section>
   <!-- past trips detailed view -->
   <section class="detailed-past-trips-js hidden">
-    <article>
-      <div>
-        <h2>gone</h2>
-        <h3>past trips</h3>
-      </div>
+    <article class="detailed-view">
+      <h2>gone</h2>
+      <h3>past trips</h3>
+      <article class="past-trips-js">
+        <!-- innerText response here -->
+      </article>
     </article>
   </section>
 
@@ -90,7 +93,6 @@
     <!-- once filled estimated cost appears here -->
     <!-- submit button here, POST called on submit -->
   </section>
-  <!-- add hidden to button when displayed -->
 
   <footer>
     <button class="make-booking make-booking-js">
