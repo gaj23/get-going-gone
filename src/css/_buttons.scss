@@ -1,11 +1,10 @@
 @import 'mixins', 'variables';
 
 .dark-light-mode {
+  @include base-button;
   width: 6vw;
-  float: right;
   border-radius: 100%;
   margin: 2%;
-  @include base-button;
 
   >img {
     background-color: #fff;
@@ -18,6 +17,15 @@
     background-color: #EFEFEF;
   }
 
+}
+
+.go-home {
+  @include base-button;
+
+  >img {
+    background-color: transparent;
+    width: 20%
+  }
 }
 
 .go-to {
@@ -36,6 +44,8 @@
     background-color: $hover-red;
   }
 }
+
+
 
 .next-destination {
   width: 88%;
