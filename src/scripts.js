@@ -86,9 +86,8 @@ function showBookingDetails() {
   domUpdates.manageClassList('remove', 'hidden', bookingDisplay);
 }
 
-
 function toggleDarkMode() {
   darkLightModeButton.classList.toggle('dark-mode-on');
-  nextDestinationButton.classList.toggle('dark-mode-on');
+  makeBookingButton.classList.toggle('dark-mode-on');
   domUpdates.toggleDarkModeUpdates();
 }
