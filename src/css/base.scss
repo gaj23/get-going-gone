@@ -29,8 +29,7 @@ header {
 }
 
 article {
-  display: flex;
-  justify-content: center;
+  @include base-flex;
   align-items: center;
 }
 
@@ -38,26 +37,12 @@ article {
   margin-left: 11vw;
 }
 
+.detailed-view {
+  flex-direction: column;
+}
+
 footer {
   @include base-flex;
-}
-
-.dark-mode-on {
-  background: #000;
-  color: #fff;
-}
-
-.dark-mode-on .make-booking {
-  color: #000;
-  background: $dark-teal;
-
-  :hover {
-    background-color: $hover-teal;
-  }
-
-  h1 {
-    text-decoration: underline $main-red;
-  }
 }
 
 .hidden {
