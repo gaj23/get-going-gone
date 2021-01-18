@@ -2,7 +2,7 @@
   "name": "webpack-starter-kit",
   "version": "1.0.0",
   "description": "Project starter kit using webpack, mocha, chai, and SCSS/SASS enabled",
-  "main": "src/index.js",
+  "main": "src/scripts.js",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
@@ -30,5 +30,7 @@
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14"
   },
-  "dependencies": {}
+  "dependencies": {
+    "luxon": "^1.25.0"
+  }
 }

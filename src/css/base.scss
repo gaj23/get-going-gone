@@ -9,20 +9,18 @@
   // border: 2px solid purple;
 }
 
+.dark-mode-container {
+  flex-direction: row-reverse;
+}
+
 body>div {
   display: flex;
   flex-direction: column;
 }
 
 header {
-  @include base-flex;
-  align-items: center;
-  margin-top: 5%;
-
-  >img {
-    width:30%;
-    height:30%;
-  }
+  display: flex;
+  flex-direction: column;
 }
 
 .total {

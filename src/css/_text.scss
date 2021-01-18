@@ -4,7 +4,7 @@ h1 {
   font-family: $main-font;
   font-size: 5rem;
   text-align: center;
-  margin-left: 2rem;
+  width: 100%;
 }
 
 h2 {
@@ -30,6 +30,10 @@ article>div>h2{
 h3 {
   font-family: $text-font;
   font-size: 3rem;
+}
+
+.tag-line{
+  width: 100%;
 }
 
 button>h1 {
