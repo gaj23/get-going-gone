@@ -7,7 +7,6 @@
   margin: 2%;
 
   >img {
-    background-color: #fff;
     width: 100%;
     padding: 5%;
     border-radius: 100%;
@@ -23,15 +22,18 @@
   @include base-button;
 
   >img {
-    background-color: transparent;
     width: 20%
+  }
+
+  :hover {
+    background-color: $hover-red;
   }
 }
 
 .go-to {
+  @include base-button;
   width: 15vw;
   margin: 4vw;
-  @include base-button;
 
   >img {
     width: 100%;
@@ -44,8 +46,6 @@
     background-color: $hover-red;
   }
 }
-
-
 
 .next-destination {
   width: 88%;
