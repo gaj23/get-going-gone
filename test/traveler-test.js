@@ -83,7 +83,7 @@ describe('Traveler', () => {
     }];
     const globeTrotter = new Traveler(travelersData[15]);
     expect(globeTrotter.separateTripTimings(globeTrotterData).past.length).to.equal(2);
-    expect(globeTrotter.separateTripTimings(globeTrotterData).future).to.deep.equal([{
+    expect(globeTrotter.separateTripTimings(globeTrotterData).planned).to.deep.equal([{
       id: 48,
       userID: 50,
       destinationID: 14,
@@ -93,7 +93,7 @@ describe('Traveler', () => {
       status: 'approved',
       suggestedActivities: []
     }]);
-    expect(globeTrotter.separateTripTimings(globeTrotterData).present).to.deep.equal([{
+    expect(globeTrotter.separateTripTimings(globeTrotterData).current).to.deep.equal([{
       id: 51,
       userID: 50,
       destinationID: 27,

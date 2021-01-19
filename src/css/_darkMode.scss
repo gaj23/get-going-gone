@@ -5,7 +5,15 @@
   color: #fff;
 }
 
-.dark-mode-on .next-destination {
+.dark-mode-on .trips {
+  border: 2px solid #fff;
+
+  img {
+    border: 2px solid #fff;
+  }
+}
+
+.dark-mode-on .make-booking {
   color: #000;
   background: $dark-teal;
 
