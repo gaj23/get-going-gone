@@ -17,16 +17,19 @@ const domUpdates = {
   },
 
   populateDetails(timing, user, tripsData, destinationsData) {
+
     const tripsArea = document.querySelector('.detailed-past-trips-js .trips-js');
     tripsArea.innerHTML = '';
-    user.separateTripTimings(tripsData)[timing].forEach(trip => {
-      destinationsData.forEach(destination => {
-        if (destination.id === trip.destinationID) {
-          tripsArea.innerHTML += `<article><h3>${destination.destination}</h3><img src=${destination.image} alt=${destination.alt}><article><h4>date: ${trip.date}</h4>
-        <h4>days: ${trip.duration}</h4><h4>travelers: ${trip.travelers}</h4></article></article>`
-        }
+    if (user.separateTripTimings(tripsData)[timing]) {
+      user.separateTripTimings(tripsData)[timing].forEach(trip => {
+        destinationsData.forEach(destination => {
+          if (destination.id === trip.destinationID) {
+            tripsArea.innerHTML += `<article><h3>${destination.destination}</h3><img src=${destination.image} alt=${destination.alt}><article><h4>date: ${trip.date}</h4>
+            <h4>days: ${trip.duration}</h4><h4>travelers: ${trip.travelers}</h4></article></article>`
+          }
+        })
       })
-    })
+    }
   },
 
   toggleDarkModeUpdates() {

@@ -71,15 +71,15 @@ class Traveler {
       //refactor above into another function if possible;
       if (!acc.past && !acc.future && !acc.present) {
         acc.past = [];
-        acc.future = [];
-        acc.present = [];
+        acc.planned = [];
+        acc.current = [];
       }
       if (endDate < currentDate) {
         acc.past.push(trip);
       } else if (startDate > currentDate) {
-        acc.future.push(trip);
+        acc.planned.push(trip);
       } else if (startDate < currentDate && endDate > currentDate) {
-        acc.present.push(trip);
+        acc.current.push(trip);
       }
       return acc;
     }, {})
