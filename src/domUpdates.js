@@ -41,7 +41,7 @@ const domUpdates = {
   },
 
   displayEstimate(price) {
-    document.querySelector('.trip-estimate-js').innerHTML = `<h3>Trip Estimate:*</h3>
+    document.querySelector('.trip-estimate-js').innerHTML = `<h3>Trip Estimate:</h3>
     <div>
       <h4>$${price.costEstimate}</h4>
     </div>
@@ -49,7 +49,7 @@ const domUpdates = {
   },
 
   alertSuccessfulRequest(destination) {
-    document.querySelector('.trip-estimate-js').innerHTML = `<h5>Success! Your trip to ${destination.destination} has been submitted for review and is listed in your pending section.</h5>`
+    document.querySelector('.trip-estimate-js').innerHTML = `<h5>Success! Your trip to ${destination.destination}is under review and is listed under pending trips.</h5>`
   },
 
   toggleDarkModeUpdates() {
