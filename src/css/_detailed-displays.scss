@@ -3,13 +3,13 @@
 
 
 .detailed-view {
-  flex-direction: column;
+  @include column-flex;
+  align-items: center;
 }
 
 // Default View for get, going gone
 .trips {
-  @include base-flex;
-  flex-direction: column;
+  @include column-flex;
   border: 2px solid #000;
   margin: 5%;
   padding: 2%;

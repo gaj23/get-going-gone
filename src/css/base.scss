@@ -1,4 +1,4 @@
-@import 'buttons', 'media-queries', 'mixins', 'text', 'variables', 'darkMode', 'detailed-displays';
+@import 'buttons', 'media-queries', 'mixins', 'text', 'variables', 'darkMode', 'detailed-displays', 'booking';
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Yusei+Magic&display=swap');
 
@@ -28,7 +28,7 @@ header {
   flex-direction: column;
 }
 
-article {
+.dashboard article {
   @include base-flex;
   align-items: center;
 }

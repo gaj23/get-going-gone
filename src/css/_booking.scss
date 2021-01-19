@@ -1,0 +1,61 @@
+@import 'mixins', 'variables';
+
+.booking {
+  @include column-flex;
+  align-items: center;
+  width: 95%;
+  margin: 2%;
+  // border: 2px solid black;
+
+  h2 {
+    margin: 2%;
+    font-family: $main-font;
+    text-decoration: 4px underline $main-blue;
+  }
+
+  form {
+    @include column-flex;
+    align-items: center;
+    width: 98%;
+    font-size: 2.4rem;
+    padding: 2%;
+  }
+
+  ul{
+    width: 88%;
+    margin-right: 2%;
+  }
+
+  li {
+    padding: 3%;
+    font-size: 2.6rem;
+    font-family: $text-font;
+    list-style-type: none;
+  }
+
+  select, input {
+    margin: 5%;
+    padding: 1%;
+    font-size: 1.8rem;
+    font-family: $text-font;
+    border: 1px solid black;
+  }
+
+
+  .estimate {
+    @include base-button;
+    width: 60%;
+    margin: 3%;
+    padding: 2%;
+    font-size: 2.5rem;
+    border: 4px solid $main-red;
+
+    :hover {
+      background-color: $hover-teal;
+    }
+  }
+
+  .post-booking {
+    @extend .estimate;
+  }
+}
