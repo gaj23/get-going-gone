@@ -37,7 +37,7 @@ currentTripsButton.addEventListener('click', showCurrentDetails);
 plannedTripsButton.addEventListener('click', showPlannedDetails);
 pastTripsButton.addEventListener('click', showPastDetails);
 makeBookingButton.addEventListener('click', showBookingDetails);
-bookingEstimateButton.addEventListener('click', collectTripDetails);
+bookingEstimateButton.addEventListener('click', displayBookingResults);
 postBookingButton.addEventListener('click', postBooking);
 
 
@@ -60,12 +60,22 @@ function getData() {
   domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations);
 }
 
-function collectTripDetails() {
+function displayBookingResults() {
   const possibleDestination = document.querySelector('#where').value;
   const chosenDestination = window.destinations.find(destination => destination.destination.includes(possibleDestination));
   const startDate = (document.querySelector('#start').value).replace('-', '/').replace('-', '/');
   const lengthOfTrip = document.querySelector('#duration').value;
   const numOfTravelers = document.querySelector('#travelers').value;
+  const tripDetails = [chosenDestination, startDate, lengthOfTrip, numOfTravelers];
+  if (tripDetails.some(element => element === undefined)) {
+    domUpdates.checkInputFields(tripDetails);
+  } else {
+    collectTripDetails(chosenDestination, startDate, lengthOfTrip, numOfTravelers);
+  }
+}
+
+
+function collectTripDetails(chosenDestination, startDate, lengthOfTrip, numOfTravelers) {
   window.trip = new Trip({
     userID: window.traveler.id,
     destinationID: chosenDestination.id,
@@ -83,12 +93,15 @@ function collectTripDetails() {
 function postBooking() {
   event.preventDefault();
   const resolvedTrip = Promise.resolve(apiCalls.postNewTrip(window.trip));
-  console.log(resolvedTrip);
   resolvedTrip.then(response => {
     window.trips.push(response);
   })
-  // console.log(window.trips);
+  domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations);
+  console.log(resolvedTrip);
+  console.log(window.trips);
 }
+
+// Manage Display Functions
 
 function showHome() {
   domUpdates.manageClassList('remove', 'hidden', homeDisplay);
