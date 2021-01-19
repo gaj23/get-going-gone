@@ -15,7 +15,23 @@ const apiCalls = {
 
   getDestinationsData: () => {
     return getData('http://localhost:3001/api/v1/destinations');
+  },
+
+  postNewTrip: (newTrip) => {
+    fetch('http://localhost:3001/api/v1/trips', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newTrip),
+      })
+      .then(data => data.json())
+      .then((data) => {
+        return data
+      })
+      .catch(err => `Apologizes, we're getting an error: ${err}`)
   }
 }
+
 
 export default apiCalls;

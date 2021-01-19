@@ -50,6 +50,11 @@
       </div>
       <button type="button" name="go-to" value="go-to" aria-label="past trips" class="go-to go-to-past-js"> <img src="./images/arrow.png" alt="arrow">
     </article>
+
+    <article class="pending-trips">
+      <h4>pending trips:</h4>
+      <h5 class="pending-trips-js">nothing here; keep exploring</h5>
+    </article>
   </section>
 
   <!-- current trips detailed view -->
@@ -99,14 +104,49 @@
   </section>
 
   <!-- book next destination -->
-  <section class="booking booking-js hidden">
-    <h2>Where to Next?</h2>
-    <form>
-      <!-- date, duration, #travelers, list destinations-->
-      <!-- no changes until all filled-->
-    </form>
-    <!-- once filled estimated cost appears here -->
-    <!-- submit button here, POST called on submit -->
+  <section class="booking-js hidden">
+    <article class="booking">
+      <h2>Where to Next?</h2>
+      <form>
+        <ul class="options">
+          <li><label for="where">Explore:</label>
+            <select name="destination" id="where" class"option" required>
+              <option value="choices">-- destinations --</option>
+              <option value="Lima">Lima, Peru</option>
+              <option value="Stockholm">Stockholm, Sweden</option>
+              <option value="Sydney">Sydney, Austrailia</option>
+              <option value="Cartagena">Cartagena, Colombia</option>
+              <option value="Madrid">Madrid, Spain</option>
+              <option value="Jakarta">Jakarta, Indonesia</option>
+              <option value="Paris">Paris, France',</option>
+              <option value="Tokyo">Tokyo, Japan</option>
+              <option value="Amsterdam">Amsterdam, Netherlands</option>
+              <!-- finish options list! -->
+            </select>
+          </li>
+          <li>
+            <label for="start">Start date:</label>
+            <input type="date" id="start" name="trip-start" value="2020-01-20" class"option" required>
+          </li>
+          <li>
+            <label for="duration">Duration:</label>
+            <input type="number" id="duration" name="duration" value="1" min="1" max="50" step="1" class"option" required>
+          </li>
+          <li>
+            <label for="travelers">Travelers:</label>
+            <input type="number" id="travelers" name="travelers" value="1" min="1" max="20" step="1" class"option" required>
+          </li>
+        </ul>
+        <button type="button" name="estimate" value="estimate" class="estimate estimate-js">Get Estimate</button>
+        <article class="trip-estimate-js hidden">
+          <h3>Trip Estimate:</h3>
+          <div>
+            <h4 class="price-js">00000</h4>
+          </div>
+        </article>
+        <button type="submit" name="submit" value="submit" class="post-booking post-booking-js" disabled>Request a Trip</button>
+      </form>
+    </article>
   </section>
 
   <footer>

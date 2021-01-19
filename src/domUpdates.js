@@ -35,6 +35,14 @@ const domUpdates = {
     }
   },
 
+  displayEstimate(price, area) {
+    document.querySelector('.price-js').innerText = `$${price.costEstimate}`
+  },
+
+  alertSuccessfulRequest() {
+
+  },
+
   toggleDarkModeUpdates() {
     document.querySelector('body').classList.toggle('dark-mode-on');
     document.querySelector('.trips-js').classList.toggle('dark-mode-on');

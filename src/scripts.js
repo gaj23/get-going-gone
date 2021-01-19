@@ -7,7 +7,7 @@ import './images/arrow.png';
 
 
 import Traveler from './Traveler';
-// import Trip from './Trip';
+import Trip from './Trip';
 // import Destination from '.Destination';
 import apiCalls from './apiCalls';
 import domUpdates from './domUpdates';
@@ -19,6 +19,8 @@ const currentTripsButton = document.querySelector('.go-to-current-js');
 const plannedTripsButton = document.querySelector('.go-to-planned-js');
 const pastTripsButton = document.querySelector('.go-to-past-js')
 const makeBookingButton = document.querySelector('.make-booking-js');
+const bookingEstimateButton = document.querySelector('.estimate-js');
+const postBookingButton = document.querySelector('.post-booking-js');
 
 // ** Display Query Selectors **
 const homeDisplay = document.querySelector('.dashboard-js');
@@ -26,6 +28,7 @@ const currentDisplay = document.querySelector('.detailed-current-trips-js');
 const plannedDisplay = document.querySelector('.detailed-planned-trips-js');
 const pastDisplay = document.querySelector('.detailed-past-trips-js');
 const bookingDisplay = document.querySelector('.booking-js');
+const estimateDisplay = document.querySelector('.trip-estimate-js');
 
 // ** Event Listeners **
 darkLightModeButton.addEventListener('click', toggleDarkMode);
@@ -34,9 +37,11 @@ currentTripsButton.addEventListener('click', showCurrentDetails);
 plannedTripsButton.addEventListener('click', showPlannedDetails);
 pastTripsButton.addEventListener('click', showPastDetails);
 makeBookingButton.addEventListener('click', showBookingDetails);
+bookingEstimateButton.addEventListener('click', collectTripDetails);
+postBookingButton.addEventListener('click', postBooking);
 
 
-window.traveler;
+window.traveler, window.trip;
 window.travelers = [];
 window.trips = [];
 window.destinations = [];
@@ -53,6 +58,36 @@ function getData() {
   window.traveler = new Traveler(travelers[7]);
   domUpdates.greetTraveler(window.traveler);
   domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations);
+}
+
+function collectTripDetails() {
+  const possibleDestination = document.querySelector('#where').value;
+  const chosenDestination = window.destinations.find(destination => destination.destination.includes(possibleDestination));
+  const startDate = (document.querySelector('#start').value).replace('-', '/').replace('-', '/');
+  const lengthOfTrip = document.querySelector('#duration').value;
+  const numOfTravelers = document.querySelector('#travelers').value;
+  window.trip = new Trip({
+    userID: window.traveler.id,
+    destinationID: chosenDestination.id,
+    travelers: numOfTravelers,
+    date: startDate,
+    duration: lengthOfTrip,
+    status: "pending"
+  }, window.trips);
+  window.trip.estimateCost(window.destinations);
+  domUpdates.manageClassList('remove', 'hidden', estimateDisplay);
+  domUpdates.displayEstimate(window.trip);
+  postBookingButton.disabled = false;
+}
+
+function postBooking() {
+  event.preventDefault();
+  const resolvedTrip = Promise.resolve(apiCalls.postNewTrip(window.trip));
+  console.log(resolvedTrip);
+  resolvedTrip.then(response => {
+    window.trips.push(response);
+  })
+  // console.log(window.trips);
 }
 
 function showHome() {
