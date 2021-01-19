@@ -67,6 +67,7 @@ function displayBookingResults() {
   const numOfTravelers = document.querySelector('#travelers').value;
   const tripDetails = [goingTo, startDate, lengthOfTrip, numOfTravelers];
   if (tripDetails.some(element => element === undefined)) {
+    domUpdates.manageClassList('remove', 'hidden', estimateDisplay);
     domUpdates.checkInputFields(tripDetails);
   } else {
     collectTripDetails(goingTo, startDate, lengthOfTrip, numOfTravelers);

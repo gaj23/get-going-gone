@@ -37,7 +37,7 @@ const domUpdates = {
   },
 
   checkInputFields() {
-    alert `Please fill in all options for an accurate price estimate.`
+    document.querySelector('.trip-estimate-js').innerHTML = `<h5>Please fill in all fields to view accurate estimate.</h5>`
   },
 
   displayEstimate(price) {
