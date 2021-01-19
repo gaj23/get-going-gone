@@ -58,22 +58,19 @@ function getData() {
 function showHome() {
   domUpdates.manageClassList('remove', 'hidden', homeDisplay);
   domUpdates.manageClassList('remove', 'hidden', makeBookingButton);
-  const detailedDisplays = [currentDisplay, plannedDisplay, pastDisplay, bookingDisplay];
-  detailedDisplays.forEach(display => {
-    if (!display.classList.contains('hidden')) {
-      domUpdates.manageClassList('add', 'hidden', display);
-    }
-  })
+  hideDetailedDisplays();
 }
 
 function showCurrentDetails() {
   domUpdates.manageClassList('add', 'hidden', homeDisplay);
   domUpdates.manageClassList('remove', 'hidden', currentDisplay);
+  domUpdates.populateDetails('present', window.traveler, window.trips, window.destinations);
 }
 
 function showPlannedDetails() {
   domUpdates.manageClassList('add', 'hidden', homeDisplay);
   domUpdates.manageClassList('remove', 'hidden', plannedDisplay);
+  domUpdates.populateDetails('future', window.traveler, window.trips, window.destinations);
 }
 
 function showPastDetails() {
@@ -85,7 +82,17 @@ function showPastDetails() {
 function showBookingDetails() {
   domUpdates.manageClassList('add', 'hidden', homeDisplay);
   domUpdates.manageClassList('add', 'hidden', makeBookingButton);
+  hideDetailedDisplays();
   domUpdates.manageClassList('remove', 'hidden', bookingDisplay);
+}
+
+function hideDetailedDisplays() {
+  const detailedDisplays = [currentDisplay, plannedDisplay, pastDisplay, bookingDisplay];
+  detailedDisplays.forEach(display => {
+    if (!display.classList.contains('hidden')) {
+      domUpdates.manageClassList('add', 'hidden', display);
+    }
+  })
 }
 
 function toggleDarkMode() {

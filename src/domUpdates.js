@@ -17,7 +17,6 @@ const domUpdates = {
   },
 
   populateDetails(timing, user, tripsData, destinationsData) {
-
     const tripsArea = document.querySelector('.detailed-past-trips-js .trips-js');
     tripsArea.innerHTML = '';
     user.separateTripTimings(tripsData)[timing].forEach(trip => {
