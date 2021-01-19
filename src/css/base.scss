@@ -1,4 +1,4 @@
-@import 'buttons', 'media-queries', 'mixins', 'text', 'variables', 'darkMode';
+@import 'buttons', 'media-queries', 'mixins', 'text', 'variables', 'darkMode', 'detailed-displays';
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Yusei+Magic&display=swap');
 
@@ -35,10 +35,6 @@ article {
 
 .past-trips div {
   margin-left: 11vw;
-}
-
-.detailed-view {
-  flex-direction: column;
 }
 
 footer {

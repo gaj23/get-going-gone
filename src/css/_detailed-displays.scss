@@ -1,0 +1,49 @@
+@import 'mixins', 'variables';
+
+
+
+.detailed-view {
+  flex-direction: column;
+}
+
+// Default View for get, going gone
+.trips {
+  @include base-flex;
+  flex-direction: column;
+  border: 1px solid #000;
+  margin: 5%;
+  padding: 2%;
+  text-align: center;
+
+  h3 {
+    width: 100%;
+    margin: 5%;
+  }
+
+  h4 {
+    font-family: $text-font;
+    font-size: 1.5rem;
+  }
+}
+
+// domUpdates view for get, going, gone
+
+.trip-card{
+  @include base-flex;
+  flex-direction: column;
+  width: 100%;
+
+  img {
+    width:98%;
+    margin: 1%;
+  }
+
+  h3 {
+    margin: 1%;
+    font-family: $main-font;
+  }
+
+  h4 {
+    font-size: 2rem;
+  }
+}
