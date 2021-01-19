@@ -37,6 +37,7 @@ const domUpdates = {
 
   toggleDarkModeUpdates() {
     document.querySelector('body').classList.toggle('dark-mode-on');
+    document.querySelector('.trips-js').classList.toggle('dark-mode-on');
     this.toggleLogoDarkMode();
   },
 
