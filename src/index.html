@@ -22,7 +22,7 @@
         <label for="password">password:</label>
         <input type="password" id="password" name="password" value="">
       </div>
-      <button type="submit" name="button" class="login-button-js">login</button>
+      <button type="submit" name="button" class="login-button-js" aria-label="login">login</button>
     </form>
     <article class="warning-js hidden">
       <h3> Please enter in a valid username and password. </h3>
@@ -49,7 +49,7 @@
       <h2>get</h2>
       <h3>current trips</h3>
     </div>
-    <button type="button" name="go-to" value="go-to" aria-label="current trips" class="go-to go-to-current-js"> <img src="./images/arrow.png" alt="arrow"></button>
+    <button type="button" name="go-to" value="go-to" aria-label="current trips" class="go-to go-to-current-js"> <img src="./images/arrow.png" alt="go to"></button>
   </article>
 
   <article class="planned-trips">
@@ -57,7 +57,7 @@
       <h2>going</h2>
       <h3>planned trips</h3>
     </div>
-    <button type="button" name="go-to" value="go-to" aria-label="future trips" class="go-to go-to-planned-js"><img src="./images/arrow.png" alt="arrow"></button>
+    <button type="button" name="go-to" value="go-to" aria-label="future trips" class="go-to go-to-planned-js"><img src="./images/arrow.png" alt="go to"></button>
   </article>
 
   <article class="past-trips">
@@ -65,7 +65,7 @@
       <h2>gone</h2>
       <h3>past trips</h3>
     </div>
-    <button type="button" name="go-to" value="go-to" aria-label="past trips" class="go-to go-to-past-js"> <img src="./images/arrow.png" alt="arrow">
+    <button type="button" name="go-to" value="go-to" aria-label="past trips" class="go-to go-to-past-js"> <img src="./images/arrow.png" alt="go to">
   </article>
 
   <article class="pending-trips">
@@ -195,17 +195,17 @@
           <input type="number" id="travelers" name="travelers" value="1" min="1" max="20" step="1" class"option" required>
         </li>
       </ul>
-      <button type="button" name="estimate" value="estimate" class="estimate estimate-js">Get Estimate</button>
+      <button type="button" name="estimate" value="estimate" class="estimate estimate-js" aria-label="get trip estimate">Get Estimate</button>
       <article class="trip-estimate trip-estimate-js hidden">
         <!-- Results from estimate and successful post will appear here -->
       </article>
-      <button type="submit" name="submit" value="submit" class="post-booking post-booking-js" disabled>Request a Trip</button>
+      <button type="submit" name="submit" value="submit" class="post-booking post-booking-js" aria-label="request this trip" disabled>Request a Trip</button>
     </form>
   </article>
 </section>
 
 <footer>
-  <button class="make-booking make-booking-js hidden">
+  <button class="make-booking make-booking-js hidden" aria-label="book a new trip">
     <h1>Where to Next?</h1>
   </button>
 </footer>
