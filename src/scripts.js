@@ -25,6 +25,7 @@ const plannedTripsButton = document.querySelector('.go-to-planned-js');
 const pastTripsButton = document.querySelector('.go-to-past-js')
 const makeBookingButton = document.querySelector('.make-booking-js');
 const bookingEstimateButton = document.querySelector('.estimate-js');
+const postBookingForm = document.querySelector('.booking-form-js')
 const postBookingButton = document.querySelector('.post-booking-js');
 
 // ** Display Query Selectors **
@@ -44,7 +45,7 @@ plannedTripsButton.addEventListener('click', showPlannedDetails);
 pastTripsButton.addEventListener('click', showPastDetails);
 makeBookingButton.addEventListener('click', showBookingDetails);
 bookingEstimateButton.addEventListener('click', displayBookingResults);
-postBookingButton.addEventListener('click', postBooking);
+postBookingForm.addEventListener('click', postBooking);
 
 
 window.traveler, window.trip;
@@ -64,7 +65,7 @@ function getTraveler() {
   const username = document.querySelector('#username').value;
   const password = document.querySelector('#password').value;
   const inputs = [username, password]
-  if (inputs.every(input => input !== '') && username.startsWith('traveler')) {
+  if (inputs.every(input => input !== '') && username.startsWith('traveler') && username.split('traveler')[1] !== '') {
     const userNum = username.split('traveler');
     const num = parseInt(userNum[1]);
     const userTraveler = window.travelers.find(traveler => traveler.id === num);
