@@ -49,7 +49,7 @@ const domUpdates = {
   },
 
   alertSuccessfulRequest(destination) {
-    document.querySelector('.trip-estimate-js').innerHTML = `<h5>Success! Your trip to ${destination.destination}is under review and is listed under pending trips.</h5>`
+    document.querySelector('.trip-estimate-js').innerHTML = `<h5>Success! Your trip to ${destination.destination} is under review and is listed under pending trips.</h5>`
   },
 
   toggleDarkModeUpdates() {
