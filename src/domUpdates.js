@@ -31,9 +31,16 @@ const domUpdates = {
   },
 
   populateDetails(timing, user, tripsData, destinationsData) {
-    const tripsArea = document.querySelector('.detailed-past-trips-js .trips-js');
-    tripsArea.innerHTML = '';
-    if (user.separateTripTimings(tripsData)[timing]) {
+    let tripsArea;
+    if (timing === 'current') {
+      tripsArea = document.querySelector('.detailed-current-trips-js .trips-js');
+    } else if (timing === 'planned') {
+      tripsArea = document.querySelector('.detailed-planned-trips-js .trips-js');
+    } else if (timing === 'past') {
+      tripsArea = document.querySelector('.detailed-past-trips-js .trips-js');
+    }
+    if (user.separateTripTimings(tripsData)[timing].length) {
+      tripsArea.innerHTML = '';
       user.separateTripTimings(tripsData)[timing].forEach(trip => {
         destinationsData.forEach(destination => {
           if (destination.id === trip.destinationID) {
