@@ -9,9 +9,17 @@ const domUpdates = {
   },
 
   updateTravelerStats(traveler, tripsData, destinationsData) {
-    console.log('updating?');
     document.querySelector('.total-places-js').innerText = traveler.filterMyTrips(tripsData).length;
     document.querySelector('.total-price-js').innerText = Math.round(traveler.findTotalExpense(tripsData, destinationsData));
+    this.evaluatePendingTrips(traveler, tripsData);
+  },
+
+  evaluatePendingTrips(traveler, tripsData) {
+    let pendingTrips = traveler.separateApprovedTrips(tripsData).pending.length;
+    if (pendingTrips === undefined) {
+      pendingTrips = 0;
+    }
+    document.querySelector('.pending-js').innerText = pendingTrips;
   },
 
   manageClassList(action, className, element) {
