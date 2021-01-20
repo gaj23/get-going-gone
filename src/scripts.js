@@ -71,6 +71,7 @@ function getTraveler() {
     const userTraveler = window.travelers.find(traveler => traveler.id === num);
     getData(userTraveler);
   } else {
+    loginForm.reset();
     domUpdates.sendWarning();
   }
 }
