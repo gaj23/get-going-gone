@@ -67,7 +67,7 @@ function getTraveler() {
   const username = document.querySelector('#username').value;
   const password = document.querySelector('#password').value;
   const inputs = [username, password]
-  if (inputs.every(input => input !== '') && username.startsWith('traveler') && username.split('traveler')[1] !== '') {
+  if (inputs.every(input => input !== '') && username.startsWith('traveler') && username.split('traveler')[1] !== '' && password === "travel2020") {
     const userNum = username.split('traveler');
     const num = parseInt(userNum[1]);
     const userTraveler = window.travelers.find(traveler => traveler.id === num);
