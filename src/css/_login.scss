@@ -8,6 +8,43 @@
     @include column-flex;
     align-items: center;
     margin: 5%;
+    font-size: 3.2rem;
+    font-family: $text-font;
+  }
+
+  div {
+    @include column-flex;
+    align-items: center;
+    margin: 3%;
+  }
+
+  input {
+    margin: 2%;
+    padding: 2%;
+    width: 66%;
+    font-size: 3rem;
+    text-align: center;
+    border-bottom: 1px solid;
+  }
+
+  button {
+    font-size: 3.5rem;
+    width: 50%;
+    padding: 2%;
+    margin: 5%;
+    cursor: pointer;
+
+    :hover {
+      background-color: $hover-teal;
+    }
+  }
+
+  article {
+    width: 70%;
+    text-align: center;
+    border: 2px solid $main-blue;
+    padding: 2%;
+    margin: 1%;
   }
 
 }
