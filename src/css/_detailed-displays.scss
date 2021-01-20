@@ -1,7 +1,5 @@
 @import 'mixins', 'variables';
 
-
-
 .detailed-view {
   @include column-flex;
   align-items: center;
