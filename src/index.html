@@ -11,17 +11,20 @@
       <img src="./images/lightDarkMode.png" alt="dark or light mode">
     </button>
   </div>
-  <section class="login-display login-display-js hidden">
+  <section class="login-display login-display-js">
     <h1>Welcome</h1>
-    <form>
+    <form class="login-form-js">
       <label for="username">username:</label>
-      <input type="text" name="username" value="">
+      <input type="text" id="username" name="username" value="">
       <label for="password">password:</label>
-      <input type="password" name="password" value="">
-      <button type="button" name="button" class="login-js">login</button>
+      <input type="password" id="password" name="password" value="">
+      <button type="submit" name="button" class="login-button-js">login</button>
     </form>
+    <article class="warning-js hidden">
+      <h3> Please enter in a valid username and password. </h3>
+    </article>
   </section>
-  <section class="main-view-js">
+  <section class="main-view-js hidden">
     <header>
       <button type="button" name="home-logo" value="home-logo" aria-label="home" class="go-home go-home-js">
         <img src="./images/redBlueCompass.png" alt="Get Going Gone Compass Logo" class="logo-js">
@@ -30,7 +33,7 @@
       </h1>
     </header>
 </div>
-<section class="dashboard dashboard-js">
+<section class="dashboard dashboard-js hidden">
   <article class="total">
     <h2>You've seen
       <div><span class="total-places-js">3</span> destinations for $<span class="total-price-js">24,000</span>!</div>
@@ -198,7 +201,7 @@
 </section>
 
 <footer>
-  <button class="make-booking make-booking-js">
+  <button class="make-booking make-booking-js hidden">
     <h1>Where to Next?</h1>
   </button>
 </footer>

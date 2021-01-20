@@ -12,6 +12,12 @@ import Trip from './Trip';
 import apiCalls from './apiCalls';
 import domUpdates from './domUpdates';
 
+// ** Login **
+const loginSection = document.querySelector('.login-display-js')
+const loginForm = document.querySelector('.login-form-js');
+const loginButton = document.querySelector('.login-button-js');
+loginForm.addEventListener('submit', getTraveler);
+
 // ** Button Query Selectors **
 const darkLightModeButton = document.querySelector('.dark-light-mode-js');
 const homeButton = document.querySelector('.go-home-js');
@@ -29,6 +35,7 @@ const plannedDisplay = document.querySelector('.detailed-planned-trips-js');
 const pastDisplay = document.querySelector('.detailed-past-trips-js');
 const bookingDisplay = document.querySelector('.booking-js');
 const estimateDisplay = document.querySelector('.trip-estimate-js');
+
 
 // ** Event Listeners **
 darkLightModeButton.addEventListener('click', toggleDarkMode);
@@ -51,11 +58,32 @@ window.onload = Promise.all([apiCalls.getTravelersData(), apiCalls.getTripsData(
     data[0].travelers.forEach(traveler => travelers.push(traveler))
     data[1].trips.forEach(trip => trips.push(trip))
     data[2].destinations.forEach(destination => destinations.push(destination))
-    getData();
+    // getData();
   })
 
-function getData() {
-  window.traveler = new Traveler(travelers[34]);
+function getTraveler() {
+  event.preventDefault();
+  const username = document.querySelector('#username').value;
+  const password = document.querySelector('#password').value;
+  const inputs = [username, password]
+  // debugger;
+  if (inputs.every(input => input !== '') && username.startsWith('traveler')) {
+    const userNum = username.split('traveler');
+    const num = parseInt(userNum[1]);
+    const userTraveler = window.travelers.find(traveler => traveler.id === num);
+    getData(userTraveler);
+  } else {
+    domUpdates.sendWarning();
+  }
+}
+
+function getData(user) {
+  window.traveler = new Traveler(user);
+  domUpdates.manageClassList('add', 'hidden', loginSection);
+  const mainView = document.querySelector('.main-view-js');
+  domUpdates.manageClassList('remove', 'hidden', mainView);
+  domUpdates.manageClassList('remove', 'hidden', homeDisplay);
+  domUpdates.manageClassList('remove', 'hidden', makeBookingButton);
   domUpdates.greetTraveler(window.traveler);
   domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations);
 }
@@ -73,7 +101,6 @@ function displayBookingResults() {
     collectTripDetails(goingTo, startDate, lengthOfTrip, numOfTravelers);
   }
 }
-
 
 function collectTripDetails(goingTo, startDate, lengthOfTrip, numOfTravelers) {
   window.trip = new Trip({

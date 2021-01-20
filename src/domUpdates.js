@@ -1,4 +1,9 @@
 const domUpdates = {
+  sendWarning() {
+    const warningArea = document.querySelector('.warning-js')
+    this.manageClassList('remove', 'hidden', warningArea);
+  },
+
   greetTraveler(traveler) {
     document.querySelector('.user-js').innerText = traveler.name.split(' ')[0];
   },
