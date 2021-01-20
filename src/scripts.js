@@ -25,7 +25,6 @@ const plannedTripsButton = document.querySelector('.go-to-planned-js');
 const pastTripsButton = document.querySelector('.go-to-past-js')
 const makeBookingButton = document.querySelector('.make-booking-js');
 const bookingEstimateButton = document.querySelector('.estimate-js');
-const postBookingForm = document.querySelector('.booking-form-js')
 const postBookingButton = document.querySelector('.post-booking-js');
 
 // ** Display Query Selectors **
@@ -33,9 +32,11 @@ const homeDisplay = document.querySelector('.dashboard-js');
 const currentDisplay = document.querySelector('.detailed-current-trips-js');
 const plannedDisplay = document.querySelector('.detailed-planned-trips-js');
 const pastDisplay = document.querySelector('.detailed-past-trips-js');
-const bookingDisplay = document.querySelector('.booking-js');
-const estimateDisplay = document.querySelector('.trip-estimate-js');
 
+// ** Booking Form **
+const bookingDisplay = document.querySelector('.booking-js');
+const postBookingForm = document.querySelector('.booking-form-js');
+const estimateDisplay = document.querySelector('.trip-estimate-js');
 
 // ** Event Listeners **
 darkLightModeButton.addEventListener('click', toggleDarkMode);
@@ -45,7 +46,7 @@ plannedTripsButton.addEventListener('click', showPlannedDetails);
 pastTripsButton.addEventListener('click', showPastDetails);
 makeBookingButton.addEventListener('click', showBookingDetails);
 bookingEstimateButton.addEventListener('click', displayBookingResults);
-postBookingForm.addEventListener('click', postBooking);
+postBookingButton.addEventListener('click', postBooking);
 
 
 window.traveler, window.trip;
@@ -59,6 +60,8 @@ window.onload = Promise.all([apiCalls.getTravelersData(), apiCalls.getTripsData(
     data[1].trips.forEach(trip => trips.push(trip))
     data[2].destinations.forEach(destination => destinations.push(destination))
   })
+
+// ** Log In **
 
 function getTraveler() {
   event.preventDefault();
@@ -86,6 +89,8 @@ function getData(user) {
   domUpdates.greetTraveler(window.traveler);
   domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations);
 }
+
+// ** Make A Booking **
 
 function displayBookingResults() {
   const goingTo = findDestination();
@@ -120,7 +125,7 @@ function postBooking() {
   event.preventDefault();
   const choice = findDestination();
   apiCalls.postNewTrip(window.trip).then(response => {
-    window.trips.push(response.newTrip);
+    window.trips.push(response.newTrip)
   })
   domUpdates.alertSuccessfulRequest(choice);
 }
@@ -131,12 +136,14 @@ function findDestination() {
   return chosenDestination;
 }
 
-// Manage Display Functions
+// ** Manage Displays **
 
 function showHome() {
   domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations)
   domUpdates.manageClassList('remove', 'hidden', homeDisplay);
   domUpdates.manageClassList('remove', 'hidden', makeBookingButton);
+  domUpdates.manageClassList('add', 'hidden', estimateDisplay);
+  postBookingForm.reset();
   hideDetailedDisplays();
 }
 
@@ -161,7 +168,6 @@ function showPastDetails() {
 function showBookingDetails() {
   domUpdates.manageClassList('add', 'hidden', homeDisplay);
   domUpdates.manageClassList('add', 'hidden', makeBookingButton);
-  hideDetailedDisplays();
   domUpdates.manageClassList('remove', 'hidden', bookingDisplay);
 }
 
