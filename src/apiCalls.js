@@ -18,7 +18,7 @@ const apiCalls = {
   },
 
   postNewTrip: (newTrip) => {
-    fetch('http://localhost:3001/api/v1/trips', {
+    return fetch('http://localhost:3001/api/v1/trips', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

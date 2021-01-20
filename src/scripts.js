@@ -55,7 +55,7 @@ window.onload = Promise.all([apiCalls.getTravelersData(), apiCalls.getTripsData(
   })
 
 function getData() {
-  window.traveler = new Traveler(travelers[7]);
+  window.traveler = new Traveler(travelers[34]);
   domUpdates.greetTraveler(window.traveler);
   domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations);
 }
@@ -93,16 +93,10 @@ function collectTripDetails(goingTo, startDate, lengthOfTrip, numOfTravelers) {
 function postBooking() {
   event.preventDefault();
   const choice = findDestination();
-  const resolvedTrip = Promise.resolve(apiCalls.postNewTrip(window.trip));
-  resolvedTrip.then(response => {
-    window.trips.push(response)
-    console.log(window.trips)
-    //expecting a longer list
+  apiCalls.postNewTrip(window.trip).then(response => {
+    window.trips.push(response.newTrip);
   })
-  domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations)
-  //expecting an update to occur
-  domUpdates.alertSuccessfulRequest(choice)
-  //updating not occuring?
+  domUpdates.alertSuccessfulRequest(choice);
 }
 
 function findDestination() {
@@ -114,6 +108,7 @@ function findDestination() {
 // Manage Display Functions
 
 function showHome() {
+  domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations)
   domUpdates.manageClassList('remove', 'hidden', homeDisplay);
   domUpdates.manageClassList('remove', 'hidden', makeBookingButton);
   hideDetailedDisplays();
