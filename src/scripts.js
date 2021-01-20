@@ -167,6 +167,7 @@ function showPastDetails() {
 function showBookingDetails() {
   domUpdates.manageClassList('add', 'hidden', homeDisplay);
   domUpdates.manageClassList('add', 'hidden', makeBookingButton);
+  hideDetailedDisplays();
   domUpdates.manageClassList('remove', 'hidden', bookingDisplay);
 }
 
