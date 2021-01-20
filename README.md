@@ -1,105 +1,138 @@
-# Webpack Starter Kit
-
-## Clone This Repo
-
-That's right, _clone_ not fork. You will use this repo multiple times, but you can only fork a repository once. So here is what you need to do to clone the repo and still be able to push changes to your repo:
-
-1. Clone down this repo. Since you don't want to name your project "webpack-starter-kit", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments): `git clone [remote-address] [what you want to name the repo]`
-1. Remove the default remote: `git remote rm origin` (notice that `git remote -v` not gives you back nothing)
-1. Create a new repo on GitHub with the name of `[what you want to name the repo]` to be consistent with naming
-1. Copy the address that you would use to clone down this repo - something like `git@github.com:...`
-1. Add this remote to your cloned down repo: `git remote add origin [address you copied in the previous step]` - do not include the brackets
-
-Now try to commit something and push it up to your new repo. If everything is setup correctly, you should see the changes on GitHub.
-
-## Setup
-
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo. 
-
-Then install the library dependencies. Run:
-
-```bash
-npm install
-```
-
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with some `h1` text, Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
-
-## Where to Add Your Code
-
-### JavaScript
-
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
-
-**Create all of your feature code files in the `src` directory.**
-
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
-
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
-
-### HTML
-
-Add the HTML you need in the `index.html` file in the `./src` directory. There is some boilerplate HTML that exists from the start that you can modify.
-
-### CSS (SCSS/SASS)
-
-This project is setup to use SCSS/SASS files by default instead of your regular CSS files. Add your SCSS files in the `src/css` directory. There is a `base.scss` file already there, but you can change this file and add multiple SCSS files in this directory.
-
-This might sound weird, but you need to `import` your SCSS files in the JavaScript entry file (`index.js`) for the styles to be applied to your HTML. The example `base.scss` file has already been imported in the JavaScript entry file as an example.
-
-### Images
-
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`index.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
-
-## How to View Your Code in Action
-
-In the terminal, run:
-
-```bash
-npm start
-```
-
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
-
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
+# 🌍 Get Going Gone 🌏
 ---
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
+#### Table of Contents
+- [Introduction](#Introduction)
+- [Features](#Features)
+- [Technologies](#Techologies)
+- [Reflections](#Reflections)
+- [Contributions](#Contributions)
+- [Authors](#Authors)
 ---
+## Introduction
 
-## Linting Your Code
+Designed with mobile viewing in mind, this is a variation of the project set forth by Turing School of Software and Design. [See rubric here](https://frontend.turing.io/projects/travel-tracker.html).
 
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
+Significant attempts were made to keep user preferences in mind while still maintaining DRY and empathetic code.
 
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory. 
+## Features
 
-## Webpack?
+To view please:
+- clone down the api: `git@github.com:turingschool-examples/travel-tracker-api.git`
+- in your terminal, cd into the api and run `npm start`
+- then please visit [here](https://gaj23.github.io/get-going-gone/) to interact and view
+- for best experience, please view via mobile device or through the dev tools viewing options
 
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
+### Categories:
+- [View trips according to their time of occurance](#time-of-trip)
 
-## Deploying to GitHub Pages
+- [Filter through booking possibilities](#view-possibilities)
 
-_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
+- [Book a new trip](#booking)
 
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
+- [Login](#login)
 
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
+- [Dark mode option](#dark-mode)
+
+#### Login
+A traveler can login and see their specific travels.
+- login by using the keyword `traveler` with any number 1 - 50 at the end; no spaces
+ - (ie: `traveler44` )
+- please use `travel2020` as the catchall password
+
+<details>
+<summary>Example of Experience</summary>
+<br>
+<img src="https://media.giphy.com/media/aR2LuAgaPYQ8hovwEm/giphy.gif">
+</details>
+
+#### Time of Trip
+View your trip depending on if it's current/on going, a future trip, or a past trip. Pending trips are accounted for by a number.
+<details>
+<summary>Example of Experience</summary>
+<br>
+<img src="https://media.giphy.com/media/RSPISJWYkDvE30jZKA/giphy.gif">
+</details>
+
+#### View Possibilities
+Select date, number of travelers, number of days on the trip, and a location to see the estimate of the cost.
+<details>
+<summary>Example of Experience</summary>
+<br>
+ <img src="https://media.giphy.com/media/EH4QM8QmRdrhGUKDKW/giphy.gif">
+</details>
+
+#### Booking
+Once a traveler has decided, they can then submit a request for booking and that booking will now appear under pending on the main page.
+<details>
+<summary>Example of Experience</summary>
+<br>
+<img src="https://media.giphy.com/media/3t385cXt16E6QZgCJ9/giphy.gif">
+</details>
+
+#### Dark Mode
+A traveler can choose between light and dark mode.
+<details>
+<summary>Example of Experience</summary>
+<br>
+<img src="https://media.giphy.com/media/iForwVQs74fqtUH8rj/giphy.gif">
+</details>
+
+## Technologies
+- HTML
+- CSS
+- JS
+- ESlint
+- Node for testing
+- [Flat Icon](https://www.flaticon.com/) for icons
+- WAVE for accessibility auditing
+- Lighthouse for accessibility auditing
+- Webpack
+- [Luxon](https://moment.github.io/luxon/); an npm package to manage dates
+
+## Reflections
+
+### Wins & Challenges
+
+#### Wins
+_Finishing up to Iteration 3_
+_Having a Dark Mode_
+_Finding different solutions for strange problems_
+
+#### Challenges
+There was a point I struggled with myself constantly because I felt as if because I wasn't on scheduled as planned and because of the constant snags and asking for help and getting stuck-- as if it didn't matter how much effort and detail I put into my projecy. That I wouldn't finish. My hardwork would remain unsung and only my failures would be acknowledged. Most of this is the result of already existing self-doubt that became heightened when in a high stress and high stakes venture.
+
+For next time, though, when I find myself experiencing these feelings again, I hope to remember to look back on this project and remember my dedication, my hardwork, and my passion is what this showcased overall.
+
+### Future Iterations
+
+More specifics about future work or refactoring can be found in this projects [GH issues](https://github.com/gaj23/get-going-gone/issues).
+
+Generally, though, I think the Traveler class needs a buffing to DRY it up. There is a method included that I never used (Issue #) and some additional consideration could be put into if the object instantiation of Traveler should contain its own list of trips (Issue #).
+
+Although created and tested, the Destination class is never used. (Issue #)
+
+The site is responsive, but best viewed on a mobile device. I would like to apply media queries (Issue #) to make the viewing more pleasing on a desktop or tablet. Priorities were given to functionality, general usability, and dark mode enablization.
+
+## Contributions
+
+Thank you <a href="https://github.com/cbdallavalle">Casey Dallavalle</a>, <a href="https://github.com/jantonso">Josh Antoson</a>, and <a href="https://github.com/srslie"> Alice Ruppert</a> for your guidance and advice.
+
+#### To Contribute
+If you'd like to contribute to the code, please complete the following steps:
+- clone this repo locally: `git@github.com:gaj23/get-going-gone.git`
+- also clone the associated API: `git@github.com:turingschool-examples/travel-tracker-api.git`
+- cd into *both* the local copy and the API copy and run `npm install`
+- in the local copy, please also download the (Luxon)[https://moment.github.io/luxon/docs/manual/install.html] dependency
+ - `npm install --save luxon`
+- from there please create a new branch following this pattern: `git checkout -b initials/feature-fix/focus-of-branch`
+- contribute as you'd like and push up your work for review
+Thank you.
+
+## Author
+<table>
+    <tr>
+        <td> Gabrielle Joyce <a href="https://github.com/gaj23">GH</td>
+    </tr>
+ <td><img src="https://avatars1.githubusercontent.com/u/68332132?s=460&u=a54dd9d3eede7c5ae0704846c510001c89dc88f7&v=4" alt="Ms. Joyce"
+ width="150" height="auto" /></td>
+</table>
