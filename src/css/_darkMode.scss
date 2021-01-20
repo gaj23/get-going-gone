@@ -25,3 +25,8 @@
     text-decoration: underline $main-red;
   }
 }
+
+.dark-mode-on .post-booking:disabled {
+    border: #000;
+    color: #000;
+}

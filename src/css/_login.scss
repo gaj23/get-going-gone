@@ -1,0 +1,13 @@
+@import 'mixins', 'variables';
+
+.login-display {
+  @include column-flex;
+  align-items: center;
+
+  form {
+    @include column-flex;
+    align-items: center;
+    margin: 5%;
+  }
+
+}

@@ -13,7 +13,7 @@ h2 {
 }
 
 .total>h2 {
-  padding: 4%;
+  padding: 2%;
 }
 
 span {
@@ -34,6 +34,21 @@ h3 {
 
 button>h1 {
   margin: 0;
-  padding: 3%;
+  padding: 2%;
   text-decoration: underline $main-blue;
+}
+
+.pending-trips {
+  margin-top: 5%;
+  flex-direction: column;
+  text-align: center;
+}
+
+h4 {
+  font-family: $text-font;
+  font-size: 2.8rem;
+}
+h5 {
+  font-family: $text-font;
+  font-size: 2.4rem;
 }

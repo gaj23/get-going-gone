@@ -4,6 +4,7 @@ const domUpdates = {
   },
 
   updateTravelerStats(traveler, tripsData, destinationsData) {
+    console.log('updating?');
     document.querySelector('.total-places-js').innerText = traveler.filterMyTrips(tripsData).length;
     document.querySelector('.total-price-js').innerText = Math.round(traveler.findTotalExpense(tripsData, destinationsData));
   },
@@ -35,9 +36,27 @@ const domUpdates = {
     }
   },
 
+  checkInputFields() {
+    document.querySelector('.trip-estimate-js').innerHTML = `<h5>Please fill in all fields to view accurate estimate.</h5>`
+  },
+
+  displayEstimate(price) {
+    document.querySelector('.trip-estimate-js').innerHTML = `<h3>Trip Estimate:</h3>
+    <div>
+      <h4>$${price.costEstimate}</h4>
+    </div>
+    <p>*10% travel agency use fee included</p>`
+  },
+
+  alertSuccessfulRequest(destination) {
+    document.querySelector('.trip-estimate-js').innerHTML = `<h5>Success! Your trip to ${destination.destination} is under review and is listed under pending trips.</h5>`
+  },
+
   toggleDarkModeUpdates() {
     document.querySelector('body').classList.toggle('dark-mode-on');
     document.querySelector('.trips-js').classList.toggle('dark-mode-on');
+    document.querySelector('.estimate-js').classList.toggle('dark-mode-on');
+    document.querySelector('.post-booking-js').classList.toggle('dark-mode-on');
     this.toggleLogoDarkMode();
   },
 
