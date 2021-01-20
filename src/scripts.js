@@ -138,7 +138,7 @@ function findDestination() {
 // ** Manage Displays **
 
 function showHome() {
-  domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations)
+  domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations);
   domUpdates.manageClassList('remove', 'hidden', homeDisplay);
   domUpdates.manageClassList('remove', 'hidden', makeBookingButton);
   domUpdates.manageClassList('add', 'hidden', estimateDisplay);
@@ -149,13 +149,13 @@ function showHome() {
 function showCurrentDetails() {
   domUpdates.manageClassList('add', 'hidden', homeDisplay);
   domUpdates.manageClassList('remove', 'hidden', currentDisplay);
-  domUpdates.populateDetails('present', window.traveler, window.trips, window.destinations);
+  domUpdates.populateDetails('current', window.traveler, window.trips, window.destinations);
 }
 
 function showPlannedDetails() {
   domUpdates.manageClassList('add', 'hidden', homeDisplay);
   domUpdates.manageClassList('remove', 'hidden', plannedDisplay);
-  domUpdates.populateDetails('future', window.traveler, window.trips, window.destinations);
+  domUpdates.populateDetails('planned', window.traveler, window.trips, window.destinations);
 }
 
 function showPastDetails() {
