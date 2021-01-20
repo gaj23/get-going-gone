@@ -8,7 +8,6 @@ import './images/arrow.png';
 
 import Traveler from './Traveler';
 import Trip from './Trip';
-// import Destination from '.Destination';
 import apiCalls from './apiCalls';
 import domUpdates from './domUpdates';
 
@@ -58,7 +57,6 @@ window.onload = Promise.all([apiCalls.getTravelersData(), apiCalls.getTripsData(
     data[0].travelers.forEach(traveler => travelers.push(traveler))
     data[1].trips.forEach(trip => trips.push(trip))
     data[2].destinations.forEach(destination => destinations.push(destination))
-    // getData();
   })
 
 function getTraveler() {
@@ -66,7 +64,6 @@ function getTraveler() {
   const username = document.querySelector('#username').value;
   const password = document.querySelector('#password').value;
   const inputs = [username, password]
-  // debugger;
   if (inputs.every(input => input !== '') && username.startsWith('traveler')) {
     const userNum = username.split('traveler');
     const num = parseInt(userNum[1]);
