@@ -14,7 +14,6 @@ import domUpdates from './domUpdates';
 // ** Login **
 const loginSection = document.querySelector('.login-display-js')
 const loginForm = document.querySelector('.login-form-js');
-const loginButton = document.querySelector('.login-button-js');
 loginForm.addEventListener('submit', getTraveler);
 
 // ** Button Query Selectors **
@@ -32,9 +31,11 @@ const homeDisplay = document.querySelector('.dashboard-js');
 const currentDisplay = document.querySelector('.detailed-current-trips-js');
 const plannedDisplay = document.querySelector('.detailed-planned-trips-js');
 const pastDisplay = document.querySelector('.detailed-past-trips-js');
-const bookingDisplay = document.querySelector('.booking-js');
-const estimateDisplay = document.querySelector('.trip-estimate-js');
 
+// ** Booking Form **
+const bookingDisplay = document.querySelector('.booking-js');
+const postBookingForm = document.querySelector('.booking-form-js');
+const estimateDisplay = document.querySelector('.trip-estimate-js');
 
 // ** Event Listeners **
 darkLightModeButton.addEventListener('click', toggleDarkMode);
@@ -54,22 +55,25 @@ window.destinations = [];
 
 window.onload = Promise.all([apiCalls.getTravelersData(), apiCalls.getTripsData(), apiCalls.getDestinationsData()])
   .then(data => {
-    data[0].travelers.forEach(traveler => travelers.push(traveler))
-    data[1].trips.forEach(trip => trips.push(trip))
-    data[2].destinations.forEach(destination => destinations.push(destination))
+    data[0].travelers.forEach(traveler => window.travelers.push(traveler))
+    data[1].trips.forEach(trip => window.trips.push(trip))
+    data[2].destinations.forEach(destination => window.destinations.push(destination))
   })
+
+// ** Log In **
 
 function getTraveler() {
   event.preventDefault();
   const username = document.querySelector('#username').value;
   const password = document.querySelector('#password').value;
   const inputs = [username, password]
-  if (inputs.every(input => input !== '') && username.startsWith('traveler')) {
+  if (inputs.every(input => input !== '') && username.startsWith('traveler') && username.split('traveler')[1] !== '' && password === "travel2020") {
     const userNum = username.split('traveler');
     const num = parseInt(userNum[1]);
     const userTraveler = window.travelers.find(traveler => traveler.id === num);
     getData(userTraveler);
   } else {
+    loginForm.reset();
     domUpdates.sendWarning();
   }
 }
@@ -84,6 +88,8 @@ function getData(user) {
   domUpdates.greetTraveler(window.traveler);
   domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations);
 }
+
+// ** Make A Booking **
 
 function displayBookingResults() {
   const goingTo = findDestination();
@@ -118,7 +124,7 @@ function postBooking() {
   event.preventDefault();
   const choice = findDestination();
   apiCalls.postNewTrip(window.trip).then(response => {
-    window.trips.push(response.newTrip);
+    window.trips.push(response.newTrip)
   })
   domUpdates.alertSuccessfulRequest(choice);
 }
@@ -129,25 +135,27 @@ function findDestination() {
   return chosenDestination;
 }
 
-// Manage Display Functions
+// ** Manage Displays **
 
 function showHome() {
-  domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations)
+  domUpdates.updateTravelerStats(window.traveler, window.trips, window.destinations);
   domUpdates.manageClassList('remove', 'hidden', homeDisplay);
   domUpdates.manageClassList('remove', 'hidden', makeBookingButton);
+  domUpdates.manageClassList('add', 'hidden', estimateDisplay);
+  postBookingForm.reset();
   hideDetailedDisplays();
 }
 
 function showCurrentDetails() {
   domUpdates.manageClassList('add', 'hidden', homeDisplay);
   domUpdates.manageClassList('remove', 'hidden', currentDisplay);
-  domUpdates.populateDetails('present', window.traveler, window.trips, window.destinations);
+  domUpdates.populateDetails('current', window.traveler, window.trips, window.destinations);
 }
 
 function showPlannedDetails() {
   domUpdates.manageClassList('add', 'hidden', homeDisplay);
   domUpdates.manageClassList('remove', 'hidden', plannedDisplay);
-  domUpdates.populateDetails('future', window.traveler, window.trips, window.destinations);
+  domUpdates.populateDetails('planned', window.traveler, window.trips, window.destinations);
 }
 
 function showPastDetails() {

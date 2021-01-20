@@ -1,4 +1,4 @@
-@import 'buttons', 'media-queries', 'mixins', 'text', 'variables', 'darkMode', 'detailed-displays', 'booking', 'login';
+@import 'buttons', 'mixins', 'text', 'variables', 'darkMode', 'detailed-displays', 'booking', 'login';
 
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Yusei+Magic&display=swap');
 
@@ -6,7 +6,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  // border: 2px solid purple;
 }
 
 .dark-mode-container {
@@ -25,7 +24,6 @@ header {
 
 .total {
   text-align: center;
-  flex-direction: column;
 }
 
 .dashboard article {
