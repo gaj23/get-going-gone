@@ -1,7 +1,7 @@
 const getData = (url) => {
   return fetch(url)
     .then(response => response.json())
-    .catch(err => console.log('Apologizes, we are having trouble loading the data'))
+    .catch(err => console.log(`Apologizes, we getting the following: ${err}`))
 }
 
 const apiCalls = {

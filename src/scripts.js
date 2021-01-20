@@ -14,7 +14,6 @@ import domUpdates from './domUpdates';
 // ** Login **
 const loginSection = document.querySelector('.login-display-js')
 const loginForm = document.querySelector('.login-form-js');
-const loginButton = document.querySelector('.login-button-js');
 loginForm.addEventListener('submit', getTraveler);
 
 // ** Button Query Selectors **
@@ -56,9 +55,9 @@ window.destinations = [];
 
 window.onload = Promise.all([apiCalls.getTravelersData(), apiCalls.getTripsData(), apiCalls.getDestinationsData()])
   .then(data => {
-    data[0].travelers.forEach(traveler => travelers.push(traveler))
-    data[1].trips.forEach(trip => trips.push(trip))
-    data[2].destinations.forEach(destination => destinations.push(destination))
+    data[0].travelers.forEach(traveler => window.travelers.push(traveler))
+    data[1].trips.forEach(trip => window.trips.push(trip))
+    data[2].destinations.forEach(destination => window.destinations.push(destination))
   })
 
 // ** Log In **
