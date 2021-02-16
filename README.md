@@ -14,12 +14,14 @@ Designed with mobile viewing in mind, this is a variation of the project set for
 
 Significant attempts were made to keep user preferences in mind while still maintaining DRY and empathetic code.
 
+Updated: 2021/02/16
+
 ## Features
 
 To view please:
 - clone down the api: `git@github.com:turingschool-examples/travel-tracker-api.git`
 - in your terminal, cd into the api and run `npm start`
-- then please visit [here](https://gaj23.github.io/get-going-gone/) to interact and view
+- then please visit [here](https://gaj23.github.io/get-going-gone/dist/index.html) to interact and view
 - for best experience, please view via mobile device or through the dev tools viewing options
 
 ### Categories:
@@ -107,11 +109,11 @@ For next time, though, when I find myself experiencing these feelings again, I h
 
 More specifics about future work or refactoring can be found in this projects [GH issues](https://github.com/gaj23/get-going-gone/issues).
 
-Generally, though, I think the Traveler class needs a buffing to DRY it up. There is a method included that I never used (Issue #) and some additional consideration could be put into if the object instantiation of Traveler should contain its own list of trips (Issue #).
+Generally, though, I think the Traveler class needs a buffing to DRY it up. There is a method included that I never used (Issue #26) and some additional consideration could be put into if the object instantiation of Traveler should contain its own list of trips (Issue #26).
 
-Although created and tested, the Destination class is never used. (Issue #)
+Although created and tested, the Destination class is never used. (Issue #27)
 
-The site is responsive, but best viewed on a mobile device. I would like to apply media queries (Issue #) to make the viewing more pleasing on a desktop or tablet. Priorities were given to functionality, general usability, and dark mode enablization.
+The site is responsive, but best viewed on a mobile device. I would like to apply media queries (Issue #28) to make the viewing more pleasing on a desktop or tablet. Priorities were given to functionality, general usability, and dark mode enablization.
 
 ## Contributions
 
