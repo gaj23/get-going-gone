@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <title>Get Going Gone</title>
+</head>
+
+<div>
+  <div class="dark-mode-container">
+    <button type="button" name="toggle-dark-light-mode" value="toggle-dark-light-mode" aria-label="dark mode" class="dark-light-mode-js dark-light-mode">
+      <img src="./images/lightDarkMode.png" alt="dark or light mode">
+    </button>
+  </div>
+  <section class="login-display login-display-js">
+    <h1>Welcome</h1>
+    <form class="login-form-js">
+      <div>
+        <label for="username">username:</label>
+        <input type="text" id="username" name="username" value="">
+      </div>
+      <div>
+        <label for="password">password:</label>
+        <input type="password" id="password" name="password" value="">
+      </div>
+      <button type="submit" name="button" class="login-button-js" aria-label="login">login</button>
+    </form>
+    <article class="warning-js hidden">
+      <h3> Please enter in a valid username and password. </h3>
+    </article>
+  </section>
+  <section class="main-view-js hidden">
+    <header>
+      <button type="button" name="home-logo" value="home-logo" aria-label="home" class="go-home go-home-js">
+        <img src="./images/redBlueCompass.png" alt="Get Going Gone Compass Logo" class="logo-js">
+      </button>
+      <h1>Welcome <span class="user-js">George</span>
+      </h1>
+    </header>
+    <section class="dashboard dashboard-js hidden">
+      <article class="total">
+        <h2>You've scheduled
+          <div><span class="total-places-js">3</span> destinations for $<span class="total-price-js">24,000</span>!</div>
+        </h2>
+      </article>
+
+      <article class="current-trips">
+        <div>
+          <h2>get</h2>
+          <h3>current trips</h3>
+        </div>
+        <button type="button" name="go-to" value="go-to" aria-label="current trips" class="go-to go-to-current-js"> <img src="./images/arrow.png" alt="go to"></button>
+      </article>
+
+      <article class="planned-trips">
+        <div>
+          <h2>going</h2>
+          <h3>planned trips</h3>
+        </div>
+        <button type="button" name="go-to" value="go-to" aria-label="future trips" class="go-to go-to-planned-js"><img src="./images/arrow.png" alt="go to"></button>
+      </article>
+
+      <article class="past-trips">
+        <div>
+          <h2>gone</h2>
+          <h3>past trips</h3>
+        </div>
+        <button type="button" name="go-to" value="go-to" aria-label="past trips" class="go-to go-to-past-js"> <img src="./images/arrow.png" alt="go to">
+      </article>
+
+      <article class="pending-trips">
+        <h4>You have <span class="pending-js">0</span> pending trips</h4>
+
+      </article>
+    </section>
+
+    <!-- current trips detailed view -->
+    <section class="detailed-current-trips-js hidden">
+      <article class="detailed-view">
+        <h2>get</h2>
+        <h3>current trips</h3>
+        <article class="trips trips-js">
+          <h3><em>keep exploring</em></h3>
+          <div>
+            <h4>We might not have anything to display to you here, but that doesn't mean we've run out of places for your next adventure!
+            </h4>
+            <h3><strong>Click below</strong> to find your next destination.</h3>
+          </div>
+        </article>
+      </article>
+    </section>
+    <!-- planned trips detailed view -->
+    <section class="detailed-planned-trips-js hidden">
+      <article class="detailed-view">
+        <h2>going</h2>
+        <h3>planned trips</h3>
+        <article class="trips trips-js">
+          <h3><em>keep exploring</em></h3>
+          <div>
+            <h4>We might not have anything to display to you here, but that doesn't mean we've run out of places for your next adventure!
+            </h4>
+            <h3>Click below to find your next destination.</h3>
+          </div>
+        </article>
+      </article>
+    </section>
+    <!-- past trips detailed view -->
+    <section class="detailed-past-trips-js hidden">
+      <article class="detailed-view">
+        <h2>gone</h2>
+        <h3>past trips</h3>
+        <article class="trips trips-js">
+          <h3><em>keep exploring</em></h3>
+          <div>
+            <h4>We might not have anything to display to you here, but that doesn't mean we've run out of places for your next adventure!
+            </h4>
+            <h3>Click below to find your next destination.</h3>
+          </div>
+        </article>
+      </article>
+    </section>
+
+    <!-- book next destination -->
+    <section class="booking-js hidden">
+      <article class="booking">
+        <h2>Where to Next?</h2>
+        <form class="booking-form-js">
+          <ul class="options">
+            <li><label for="where">Explore:</label>
+              <select name="destination" id="where" class"option" required>
+                <option value="choices">-- destinations --</option>
+                <option value="Lima">Lima, Peru</option>
+                <option value="Stockholm">Stockholm, Sweden</option>
+                <option value="Sydney">Sydney, Austrailia</option>
+                <option value="Cartagena">Cartagena, Colombia</option>
+                <option value="Madrid">Madrid, Spain</option>
+                <option value="Jakarta">Jakarta, Indonesia</option>
+                <option value="Paris">Paris, France</option>
+                <option value="Tokyo">Tokyo, Japan</option>
+                <option value="Amsterdam">Amsterdam, Netherlands</option>
+                <option value="Toronto">Toronto, Canada</option>
+                <option value="Mikonos">Mikonos, Greece</option>
+                <option value="Wellington">Wellington, New Zealand</option>
+                <option value="St. Petersburg">St. Petersburg, Russia</option>
+                <option value="Marrakesh">Marrakesh, Morocco</option>
+                <option value="Manila">Manila, Philippines</option>
+                <option value="Bangkok">Bangkok, Thailand</option>
+                <option value="Jaipur">Jaipur, India</option>
+                <option value="Cape Town">Cape Town, South Africa</option>
+                <option value="Quito">Quito, Ecuador</option>
+                <option value="Miami">Miami, Florida</option>
+                <option value="Tulum">Tulum, Mexico</option>
+                <option value="Rome">Rome, Italy</option>
+                <option value="Copenhagen">Copenhagen, Denmark</option>
+                <option value="Vilnius">Vilnius, Lithuania</option>
+                <option value="New York">New York, New York</option>
+                <option value="London">London, England</option>
+                <option value="San Francisco">San Francisco, California</option>
+                <option value="San Juan">San Juan, Puerto Rico</option>
+                <option value="Willemstad">Willemstad, Curaçao</option>
+                <option value="Antananarivo">Antananarivo, Madagascar</option>
+                <option value="Colombo">Colombo, Sri Lanka</option>
+                <option value="Kathmandu">Kathmandu, Nepal</option>
+                <option value="Brussels">Brussels, Belgium</option>
+                <option value="Seoul">Seoul, South Korea</option>
+                <option value="Anchorage">Anchorage, Alaska</option>
+                <option value="Reykjavík">Reykjavík, Iceland</option>
+                <option value="Frankfurt">Frankfurt, Germany</option>
+                <option value="Helsinki">Helsinki, Finland</option>
+                <option value="Porto">Porto, Portugal</option>
+                <option value="La Isla Tortuga">La Isla Tortuga, Costa Rica</option>
+                <option value="Montego Bay">Montego Bay, Jamaica</option>
+                <option value="Santo Domingo">Santo Domingo, Dominican Republic</option>
+                <option value="Nassau">Nassau, The Bahamas</option>
+                <option value="Caye Caulker">Caye Caulker, Belize</option>
+                <option value="Calgary">Calgary, Canada</option>
+                <option value="Victoria">Victoria, Seychelles</option>
+                <option value="Zürich">Zürich, Switzerland</option>
+                <option value="Dar es Salaam">Dar es Salaam, Tanzania</option>
+                <option value="Castries">Castries, St Lucia</option>
+                <option value="Hobart">Hobart, Tasmania</option>
+                <!-- finish options list! -->
+              </select>
+            </li>
+            <li>
+              <label for="start">Start date:</label>
+              <input type="date" id="start" name="trip-start" min="2021-01-20" value="2021-01-20" class"option" required>
+            </li>
+            <li>
+              <label for="duration">Duration:</label>
+              <input type="number" id="duration" name="duration" value="1" min="1" max="50" step="1" class"option" required>
+            </li>
+            <li>
+              <label for="travelers">Travelers:</label>
+              <input type="number" id="travelers" name="travelers" value="1" min="1" max="20" step="1" class"option" required>
+            </li>
+          </ul>
+          <button type="button" name="estimate" value="estimate" class="estimate estimate-js" aria-label="get trip estimate">Get Estimate</button>
+          <article class="trip-estimate trip-estimate-js hidden">
+            <!-- Results from estimate and successful post will appear here -->
+          </article>
+          <button type="submit" name="submit" value="submit" class="post-booking post-booking-js" aria-label="request this trip" disabled>Request a Trip</button>
+        </form>
+      </article>
+    </section>
+
+    <footer>
+      <button class="make-booking make-booking-js hidden" aria-label="book a new trip">
+        <h1>Where to Next?</h1>
+      </button>
+    </footer>
+
+    <script src="bundle.js"></script></body>
+
+</html>
