@@ -29,6 +29,7 @@ describe('Traveler', () => {
   it('Should calculate the total amount a traveler has spent with the travel agency', () => {
     expect(traveler.findTotalExpense(tripsData, destinationsData)).to.equal(15526.5)
     expect(traveler2.findTotalExpense(tripsData, destinationsData)).to.equal(58300);
+    //what if it's a new user with no trips? 
   });
 
   it('Should calculate the total amount a traveler has spent in a given year', () => {
