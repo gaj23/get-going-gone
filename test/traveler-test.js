@@ -29,7 +29,7 @@ describe('Traveler', () => {
   it('Should calculate the total amount a traveler has spent with the travel agency', () => {
     expect(traveler.findTotalExpense(tripsData, destinationsData)).to.equal(15526.5)
     expect(traveler2.findTotalExpense(tripsData, destinationsData)).to.equal(58300);
-    //what if it's a new user with no trips? 
+    //what if it's a new user with no trips?
   });
 
   it('Should calculate the total amount a traveler has spent in a given year', () => {
@@ -46,61 +46,61 @@ describe('Traveler', () => {
 
   it('Should separate trips into past, current, and future', () => {
     const globeTrotterData = [{
-      "id": 48,
-      "userID": 50,
-      "destinationID": 14,
-      "travelers": 6,
-      "date": "2021/02/10",
-      "duration": 8,
-      "status": "approved",
-      "suggestedActivities": []
-    }, {
-      "id": 49,
-      "userID": 50,
-      "destinationID": 35,
-      "travelers": 1,
-      "date": "2020/05/14",
-      "duration": 16,
-      "status": "approved",
-      "suggestedActivities": []
-    }, {
-      "id": 50,
-      "userID": 50,
-      "destinationID": 16,
-      "travelers": 5,
-      "date": "2020/07/02",
-      "duration": 17,
-      "status": "approved",
-      "suggestedActivities": []
-    }, {
-      "id": 51,
-      "userID": 50,
-      "destinationID": 27,
-      "travelers": 2,
-      "date": "2021/01/16",
-      "duration": 15,
-      "status": "approved",
-      "suggestedActivities": []
-    }];
-    const globeTrotter = new Traveler(travelersData[15]);
-    expect(globeTrotter.separateTripTimings(globeTrotterData).past.length).to.equal(2);
-    expect(globeTrotter.separateTripTimings(globeTrotterData).planned).to.deep.equal([{
       id: 48,
       userID: 50,
       destinationID: 14,
       travelers: 6,
-      date: '2021/02/10',
+      date: '2021/03/17',
       duration: 8,
       status: 'approved',
       suggestedActivities: []
-    }]);
-    expect(globeTrotter.separateTripTimings(globeTrotterData).current).to.deep.equal([{
+    }, {
+      id: 49,
+      userID: 50,
+      destinationID: 35,
+      travelers: 1,
+      date: '2020/05/14',
+      duration: 16,
+      status: 'approved',
+      suggestedActivities: []
+    }, {
+      id: 50,
+      userID: 50,
+      destinationID: 16,
+      travelers: 5,
+      date: '2020/07/02',
+      duration: 17,
+      status: 'approved',
+      suggestedActivities: []
+    }, {
       id: 51,
       userID: 50,
       destinationID: 27,
       travelers: 2,
-      date: '2021/01/16',
+      date: '2021/12/16',
       duration: 15,
+      status: 'approved',
+      suggestedActivities: []
+    }];
+    const globeTrotter = new Traveler(travelersData[15]);
+    expect(globeTrotter.separateTripTimings(globeTrotterData).past.length).to.equal(2);
+    expect(globeTrotter.separateTripTimings(globeTrotterData).planned).to.deep.equal([{
+      id: 51,
+      userID: 50,
+      destinationID: 27,
+      travelers: 2,
+      date: '2021/12/16',
+      duration: 15,
+      status: 'approved',
+      suggestedActivities: []
+    }]);
+    expect(globeTrotter.separateTripTimings(globeTrotterData).current).to.deep.equal([{
+      id: 48,
+      userID: 50,
+      destinationID: 14,
+      travelers: 6,
+      date: '2021/03/17',
+      duration: 8,
       status: 'approved',
       suggestedActivities: []
     }]);
